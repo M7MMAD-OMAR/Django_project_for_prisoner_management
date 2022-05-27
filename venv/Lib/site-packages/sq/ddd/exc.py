@@ -1,0 +1,4 @@
+
+
+class InconsistentAggregateState(Exception):
+    pass
