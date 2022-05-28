@@ -1,4 +1,8 @@
 class Convicts:
+    """
+    have class Person method and properties ID, First Name, Father, Last Name.......
+    and Get, Set All Properties
+    """
     def __init__(self, id, from_date, to_date, person_id, offense_id):
         if (id and person_id and offense_id > 0) and (from_date and to_date is not None):
             self.__Id = id
