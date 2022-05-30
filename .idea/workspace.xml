@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="342ae14c-1102-4521-a3c5-31fb74651be7" name="Default Changelist" comment="Update README.md">
       <changelist_data name="M7MMAD-OMAR" email="73592103+m7mmad-omar@users.noreply.github.com" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Connect_DB.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Connect_DB.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Dungeon.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Dungeon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Dungeon_Moves.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Dungeon_Moves.py" afterDir="false" />

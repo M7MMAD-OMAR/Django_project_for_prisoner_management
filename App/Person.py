@@ -33,8 +33,8 @@ class Person:
             db = c_DB.connect_DB()
             temp_str = """INSERT INTO Person('first_name', 'father', 'last_name', 'gender', 'birth_year', 'address')
                       VALUES (?, ?, ?, ?, ?, ?)"""
-            temp_val = (self.get_first_name(), self.get_father(), self.get_last_name(),
-                        self.get_gender(), self.get_birth_year(), self.get_address())
+            temp_val = (p.get_first_name(), p.get_father(), p.get_last_name(), p.get_gender(),
+                        p.get_birth_year(), p.get_address())
             cu = db.cursor()
             cu.execute(temp_str, temp_val)
             db.commit()

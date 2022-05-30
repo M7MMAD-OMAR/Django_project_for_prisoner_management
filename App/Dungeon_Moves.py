@@ -11,71 +11,86 @@ class Dungeon_Moves:
         self.set_dungeon_id(dungeon_id)
         self.set_person_id(person_id)
         self.set_from_date(from_date.strip())
-        # if dungeon_id > 0 and person_id > 0 and len(from_date) > 0:
-        #     # self.__Id = id
-        #     self.__dungeon_id = dungeon_id
-        #     self.__person_id = person_id
-        #     self.__from_date = from_date
-        # else:
-        #     raise Exception("Error from Dungeon Moves constructor")
 
     def __str__(self):
         print(f'Dungeon ID: {self.__dungeon_id}\n'
               f'Person ID: {self.__person_id}\n'
               f'From Date: {self.__from_date}')
 
-    # def get_id(self):
-    #     return self.__Id
-    #
-    # def set_id(self, id):
-    #     if id <= 0:
-    #         raise ValueError("Error from Dungeon Moves ID")
-    #     else:
-    #         self.__Id = id
-
     def get_dungeon_id(self):
         return self.__dungeon_id
 
     def set_dungeon_id(self, di):
-        global db
-        try:
-            db = c_DB.connect_DB()
-            temp_str = """SELECT Id FROM Dungeon WHERE Id=?"""
-            cu = db.cursor()
-            cu.execute(temp_str, di)
-            if cu.fetchone():
-                self.__dungeon_id = di
-            else:
-                raise Exception("Dungeon ID is not defined")
-        except Exception as ex:
-            print(ex)
-        finally:
-            if db:
-                db.close()
-                print("Closed DataBase from Dungeon Moves")
-        # if c_DB.check(di, "Error from Dungeon Moves Dungeon ID"):
-        #     self.__dungeon_id = di
-        # if di <= 0:
-        #     raise ValueError("Error from Dungeon Moves Dungeon ID")
-        # else:
-        #     self.__dungeon_id = di
+        if di > 0:
+            global db
+            try:
+                db = c_DB.connect_DB()
+                temp_str = """SELECT Id FROM Dungeon WHERE Id=:id"""
+                cu = db.cursor()
+                if cu.execute(temp_str, {"id": di}).fetchone():
+                    self.__dungeon_id = di
+                    print("Dungeon ID is Available")
+                else:
+                    raise ValueError("Error: Dungeon ID is not defined")
+            except c_DB.sq.ProgrammingError as ex:
+                print(ex)
+            except ValueError as ex:
+                print(ex)
+            finally:
+                if db:
+                    db.close()
+                    print("Closed DataBase from Dungeon Moves")
+        else:
+            raise ValueError("Error: Dungeon ID must be greater than Zero")
 
     def get_person_id(self):
         return self.__person_id
 
     def set_person_id(self, pi):
-        if pi <= 0:
-            raise ValueError("Error from Dungeon Moves Person ID")
+
+        if pi > 0:
+            global db
+            try:
+                db = c_DB.connect_DB()
+                temp_str = """SELECT Id FROM Person WHERE Id=:id"""
+                cu = db.cursor()
+                if cu.execute(temp_str, {"id": pi}).fetchone():
+                    self.__person_id = pi
+                    print("Person ID is Available")
+                else:
+                    raise ValueError("Error: Person ID is not defined")
+            except c_DB.sq.ProgrammingError as ex:
+                print(ex)
+            except ValueError as ex:
+                print(ex)
+            finally:
+                if db:
+                    db.close()
+                    print("Closed DataBase from Dungeon Moves [Person]")
         else:
-            self.__person_id = pi
+            raise ValueError("Error: Person ID must be greater than Zero")
+
+
 
     def get_from_date(self):
         return self.__from_date
 
     def set_from_date(self, fd):
-        if c_DB.check(fd, "Error from Dungeon Moves From Date"):
-            self.__from_date = fd
-        # if fd is None:
-        #     raise ValueError("Error from Dungeon Moves From Date")
-        # else:
-        #     self.__from_date = fd
+        try:
+            if len(fd) <= 0:
+                raise ValueError("Error: No value entered for the date")
+            else:
+                temp_split = fd.split(', ')
+                temp_date = c_DB.dt.strptime(temp_split[0], "%d-%m-%Y")
+                temp_time = c_DB.dt.strptime(temp_split[1], "%H:%M")
+                date_now = c_DB.dt.now()
+                if temp_date > c_DB.dt.now():
+                    raise ValueError(
+                        f'Error: From Date must be smaller than {date_now.day}:{date_now.month}:{date_now.year}')
+                else:
+                    self.__from_date = fd
+        except ValueError:
+            print("Error: Value From Date is False ")
+
+
+
