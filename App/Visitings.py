@@ -3,9 +3,9 @@ class Visitings:
     have class Visitings method and properties ID, Date Visited, Person ID, Visitor Name.......
     and Get, Set All Properties
     """
-    def __int__(self, id, date_visited, person_id, visitor_name, mountin_minutes):
-        if (id and person_id and mountin_minutes > 0) and (date_visited is not None) and len(visitor_name) > 0:
-            self.__Id = id
+    def __int__(self, date_visited, person_id, visitor_name, mountin_minutes):
+        if (person_id and mountin_minutes > 0) and (date_visited is not None) and len(visitor_name) > 0:
+            # self.__Id = id
             self.__date_visited = date_visited
             self.__person_id = person_id
             self.__visitor_name = visitor_name
@@ -14,20 +14,19 @@ class Visitings:
             raise Exception("Error from Visitings constructor")
 
     def __str__(self):
-        print(f'ID: {self.__Id}\n'
-              f'Date Visited: {self.__date_visited}\n'
+        print(f'Date Visited: {self.__date_visited}\n'
               f'Person Id: {self.__person_id}\n'
               f'Visitor Name: {self.__visitor_name}\n'
               f'Mountin Minutes: {self.__mountin_minutes}')
 
-    def get_id(self):
-        return self.__Id
-
-    def set_id(self, id):
-        if id <= 0:
-            raise ValueError("Error from Visitings id")
-        else:
-            self.__Id = id
+    # def get_id(self):
+    #     return self.__Id
+    #
+    # def set_id(self, id):
+    #     if id <= 0:
+    #         raise ValueError("Error from Visitings id")
+    #     else:
+    #         self.__Id = id
 
     def get_date_visited(self):
         return self.__date_visited

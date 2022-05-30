@@ -1,11 +1,11 @@
 class Convicts:
     """
-    have class Person method and properties ID, First Name, Father, Last Name.......
+    have class Convicts method and properties ID, From date, To date, Person ID.......
     and Get, Set All Properties
     """
-    def __init__(self, id, from_date, to_date, person_id, offense_id):
-        if (id and person_id and offense_id > 0) and (from_date and to_date is not None):
-            self.__Id = id
+    def __init__(self, from_date, to_date, person_id, offense_id):
+        if (person_id and offense_id > 0) and (from_date and to_date is not None):
+            # self.__Id = id
             self.__from_date = from_date
             self.__to_date = to_date
             self.__person_id = person_id
@@ -14,20 +14,19 @@ class Convicts:
             raise Exception("Error from Convicts constructor")
 
     def __str__(self):
-        print(f'ID: {self.__Id}\n'
-              f'From Date: {self.__from_date}\n'
+        print(f'From Date: {self.__from_date}\n'
               f'To Date: {self.__to_date}\n'
               f'Person ID: {self.__person_id}\n'
               f'Offense ID: {self.__offense_id}')
 
-    def get_id(self):
-        return self.__Id
-
-    def set_id(self, id):
-        if id <= 0:
-            raise ValueError("Error from Convicts id")
-        else:
-            self.__Id = id
+    # def get_id(self):
+    #     return self.__Id
+    #
+    # def set_id(self, id):
+    #     if id <= 0:
+    #         raise ValueError("Error from Convicts id")
+    #     else:
+    #         self.__Id = id
 
     def get_from_date(self):
         return self.__from_date
