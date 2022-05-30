@@ -21,174 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="342ae14c-1102-4521-a3c5-31fb74651be7" name="Default Changelist" comment="Update README.md">
       <changelist_data name="M7MMAD-OMAR" email="73592103+m7mmad-omar@users.noreply.github.com" />
-      <change afterPath="$PROJECT_DIR$/App/Connect_DB.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Offense.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/compiler/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Convicts.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Convicts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Connect_DB.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Connect_DB.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Dungeon.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Dungeon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Dungeon_Moves.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Dungeon_Moves.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Person.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Person.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Visitings.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Visitings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/DataBase.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB/DataBase.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/kivy/tests/test_lang_pre_process_and_post_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/kivy/tests/test_lang_pre_process_and_post_process.py" afterDir="false" />
     </list>
-    <list id="69fcc629-33bb-436c-804c-7fe61bedc039" name="datatime" comment="create date time">
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/_mysql_connector.cp310-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/_mysqlxpb.cp310-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/_upb/_message.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/any_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/api_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/compiler/plugin_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/descriptor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/descriptor_database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/descriptor_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/descriptor_pool.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/duration_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/empty_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/field_mask_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/_parameterized.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/api_implementation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/builder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/containers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/descriptor_database_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/descriptor_pool_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/descriptor_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/encoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/enum_type_wrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/extension_dict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/generator_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/import_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/import_test_package/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/json_format_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/keywords_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/message_factory_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/message_listener.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/message_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/proto_builder_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/python_message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/reflection_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/service_reflection_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/symbol_database_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/test_util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/testing_refleaks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/text_encoding_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/text_format_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/type_checkers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/unknown_fields_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/well_known_types.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/well_known_types_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/wire_format.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/internal/wire_format_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/json_format.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/message_factory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/proto_builder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/pyext/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/pyext/cpp_message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/reflection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/service_reflection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/source_context_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/struct_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/symbol_database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/text_encoding.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/text_format.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/timestamp_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/type_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/unknown_fields.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/util/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/google/protobuf/wrappers_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/libcrypto-1_1-x64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/libmysql.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/libssl-1_1-x64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/abstracts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/authentication.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/charsets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/connection_cext.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/conversion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/cursor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/cursor_cext.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/custom_types.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/dbapi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/django/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/django/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/django/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/django/compiler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/django/creation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/django/features.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/django/introspection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/django/operations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/django/schema.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/django/validation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/errorcode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/errors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/locales/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/locales/eng/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/locales/eng/client_error.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/network.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/optionfiles.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/pooling.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/protocol.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/connector/version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/vendor/libcrypto-1_1-x64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/vendor/libssl-1_1-x64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/vendor/plugin/authentication_fido_client.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/vendor/plugin/authentication_kerberos_client.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql/vendor/plugin/authentication_oci_client.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql_connector_python-8.0.29.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql_connector_python-8.0.29.dist-info/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql_connector_python-8.0.29.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql_connector_python-8.0.29.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql_connector_python-8.0.29.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql_connector_python-8.0.29.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysql_connector_python-8.0.29.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/authentication.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/charsets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/crud.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/dbdoc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/errorcode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/errors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/expr.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/helpers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/locales/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/locales/eng/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/locales/eng/client_error.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_connection_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_crud_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_cursor_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_datatypes_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_expect_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_expr_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_notice_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_prepare_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_resultset_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_session_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_sql_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/protocol.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/result.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/mysqlx/statement.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/protobuf-4.21.1.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/protobuf-4.21.1.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/protobuf-4.21.1.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/protobuf-4.21.1.dist-info/WHEEL" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Person.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Person.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/__init__.py" beforeDir="false" />
-    </list>
+    <list id="69fcc629-33bb-436c-804c-7fe61bedc039" name="datatime" comment="create date time" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,28 +62,6 @@
         <option value="https://github.com/M7MMAD-OMAR/Mobile_app_for_prisoner_management" />
       </set>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/App/Person.py">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="5" changelist="69fcc629-33bb-436c-804c-7fe61bedc039" />
-        <range start1="6" end1="17" start2="11" end2="28" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="19" end1="22" start2="30" end2="32" changelist="69fcc629-33bb-436c-804c-7fe61bedc039" />
-        <range start1="28" end1="30" start2="38" end2="46" changelist="69fcc629-33bb-436c-804c-7fe61bedc039" />
-        <range start1="31" end1="36" start2="47" end2="69" changelist="69fcc629-33bb-436c-804c-7fe61bedc039" />
-        <range start1="40" end1="44" start2="73" end2="75" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="45" end1="45" start2="76" end2="80" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="49" end1="53" start2="84" end2="86" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="54" end1="54" start2="87" end2="91" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="58" end1="62" start2="95" end2="97" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="63" end1="63" start2="98" end2="102" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="67" end1="69" start2="106" end2="108" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="76" end1="80" start2="115" end2="117" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="81" end1="81" start2="118" end2="122" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="85" end1="89" start2="126" end2="128" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-        <range start1="90" end1="90" start2="129" end2="133" changelist="342ae14c-1102-4521-a3c5-31fb74651be7" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

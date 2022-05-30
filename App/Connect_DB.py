@@ -4,12 +4,15 @@ import sqlite3 as sq
 def connect_DB():
     """Connect DataBase"""
     try:
-        db = sq.connect("../DB/DataBase.db", detect_types=sq.PARSE_DECLTYPES)
+        # con = sqlite3.connect("file:nosuchdb.db?mode=rw", uri=True)
+        db = sq.connect("file:../DB/DataBase.db?mode=rw", uri=True, detect_types=sq.PARSE_DECLTYPES)
         print("Connected DataBase successfully")
         return db
+    except sq.OperationalError as ex:
+        print("Error: The DataBase is not here, Please try again")
     except sq.Error as ex:
-        # print("Error while working with SQLite", ex)
-        return ex
+        print("Error: while working with SQLite", ex.__class__)
+
 
 
 def check(s: str, message: str):
