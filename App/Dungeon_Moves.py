@@ -21,7 +21,9 @@ class Dungeon_Moves:
         return self.__dungeon_id
 
     def set_dungeon_id(self, di):
-        if di > 0:
+        if di <= 0:
+            raise ValueError("Error: Dungeon ID must be greater than Zero")
+        else:
             global db
             try:
                 db = c_DB.connect_DB()
@@ -33,22 +35,20 @@ class Dungeon_Moves:
                 else:
                     raise ValueError("Error: Dungeon ID is not defined")
             except c_DB.sq.ProgrammingError as ex:
-                print(ex)
+                raise ex
             except ValueError as ex:
-                print(ex)
+                raise ex
             finally:
                 if db:
                     db.close()
-                    print("Closed DataBase from Dungeon Moves")
-        else:
-            raise ValueError("Error: Dungeon ID must be greater than Zero")
 
     def get_person_id(self):
         return self.__person_id
 
     def set_person_id(self, pi):
-
-        if pi > 0:
+        if pi <= 0:
+            raise ValueError("Error: Person ID must be greater than Zero")
+        else:
             global db
             try:
                 db = c_DB.connect_DB()
@@ -60,17 +60,12 @@ class Dungeon_Moves:
                 else:
                     raise ValueError("Error: Person ID is not defined")
             except c_DB.sq.ProgrammingError as ex:
-                print(ex)
+                raise ex
             except ValueError as ex:
-                print(ex)
+                raise ex
             finally:
                 if db:
                     db.close()
-                    print("Closed DataBase from Dungeon Moves [Person]")
-        else:
-            raise ValueError("Error: Person ID must be greater than Zero")
-
-
 
     def get_from_date(self):
         return self.__from_date
@@ -90,7 +85,4 @@ class Dungeon_Moves:
                 else:
                     self.__from_date = fd
         except ValueError:
-            print("Error: Value From Date is False ")
-
-
-
+            raise "Error: Value From Date is False"

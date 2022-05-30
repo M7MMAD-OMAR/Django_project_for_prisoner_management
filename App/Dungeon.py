@@ -27,21 +27,21 @@ class Dungeon:
             cu.execute(temp_str, temp_val)
             db.commit()
             print("Sent values in add dungeon Successfully")
-        except AttributeError:
-            pass
+        except AttributeError as ex:
+            raise ex
         finally:
             if db:
                 db.close()
-                print("close DataBase from add dungeon")
 
     def get_name(self):
         return self.__name
 
     def set_name(self, name):
-        print('$' * 20)
         """change name and check name is in DB then not change name
         or name is not created in DB then change name"""
-        if len(name) > 1:
+        if len(name) <= 1:
+            raise ValueError("Error: length name is a few char")
+        else:
             global db
             try:
                 db = c_DB.connect_DB()
@@ -53,19 +53,15 @@ class Dungeon:
                     print("Name is Available")
                 else:
                     raise c_DB.sq.ProgrammingError("Error: Dungeon name is already defined, Please change value name")
-
             except c_DB.sq.ProgrammingError as ex:
-                print(ex)
+                raise ex
             except ValueError as ex:
-                print(ex)
-            except Exception:
-                print("Error: from Dungeon set name")
+                raise ex
+            except Exception as ex:
+                raise ex
             finally:
                 if db:
                     db.close()
-                    print("close DataBase from dungeon Set name")
-        else:
-            raise ValueError("Error: length name is a few char")
 
     def get_size(self):
         return self.__size

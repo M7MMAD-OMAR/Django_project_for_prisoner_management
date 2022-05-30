@@ -40,11 +40,10 @@ class Person:
             db.commit()
             print("Sent Values Person successfully")
         except Exception as ex:
-            print(ex)
+            raise ex
         finally:
             if db:
                 db.close()
-                print("Closed DataBase from add person")
 
     def get_first_name(self):
         return self.__first_name

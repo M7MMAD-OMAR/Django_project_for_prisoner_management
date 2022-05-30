@@ -4,14 +4,13 @@ from datetime import datetime as dt
 def connect_DB():
     """Connect DataBase"""
     try:
-        # con = sqlite3.connect("file:nosuchdb.db?mode=rw", uri=True)
         db = sq.connect("file:../DB/DataBase.db?mode=rw", uri=True, detect_types=sq.PARSE_DECLTYPES)
         print("Connected DataBase successfully")
         return db
-    except sq.OperationalError as ex:
-        print("Error: The DataBase is not here, Please try again")
-    except sq.Error as ex:
-        print("Error: while working with SQLite", ex.__class__)
+    except sq.OperationalError:
+        raise "Error: The DataBase is not here, Please try again"
+    except sq.Error:
+        raise "Error: while working with SQLite"
 
 
 
