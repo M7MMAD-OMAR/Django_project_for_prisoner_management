@@ -3,26 +3,29 @@ import Connect_DB as c_DB
 
 class Dungeon:
     """
-    have class Dungeon method and properties ID, Name, Size.......
+    have class Dungeon method and properties Name, Size.......
     and Get, Set All Properties
     """
+    cls = None
 
     def __init__(self, name: str, size: int):
-        self.set_name(name.strip())
-        self.set_size(size)
+        cls = self
+        self.name = name.strip()
+        self.size = size
 
     def __str__(self):
-        print(f'Name: {self.get_name()}\n'
-              f'Size: {self.get_size()}\n')
+        print(f'Name: {self.name}\n'
+              f'Size: {self.size}\n')
+
 
     def add_dungeon(self, name: str, size: int):
         """Add dungeon in DB"""
         global db
         try:
-            d = Dungeon(name, size)
+            Dungeon(name, size)
             db = c_DB.connect_DB()
             temp_str = """INSERT INTO Dungeon('name', 'size') VALUES(?, ?)"""
-            temp_val = (d.get_name(), d.get_size())
+            temp_val = (name, size)
             cu = db.cursor()
             cu.execute(temp_str, temp_val)
             db.commit()
@@ -33,10 +36,12 @@ class Dungeon:
             if db:
                 db.close()
 
-    def get_name(self):
+    @property
+    def name(self):
         return self.__name
 
-    def set_name(self, name):
+    @name.setter
+    def name(self, name):
         """change name and check name is in DB then not change name
         or name is not created in DB then change name"""
         if len(name) <= 1:
@@ -63,10 +68,12 @@ class Dungeon:
                 if db:
                     db.close()
 
-    def get_size(self):
+    @property
+    def size(self):
         return self.__size
 
-    def set_size(self, size):
+    @size.setter
+    def size(self, size):
         if size <= 0:
             raise ValueError("Error: Size must be greater then Zero")
         else:

@@ -1,17 +1,25 @@
 import Connect_DB as c_DB
 
+
 class Offense:
+    """
+    have class Offense method and properties name.......
+    and Get, Set All Properties
+    """
+    cls = None
+
     def __init__(self, name: str):
-        self.set_name(name.strip())
+        cls = self
+        self.name = name
 
     def __str__(self):
-        print(f'Name: {self.__name}')
+        print(f'Name: {self.name}')
 
     def add_offense(self, name: str):
         """Add Offense name In DB and check value"""
         global db
         try:
-            o = Offense(name)
+            Offense(name)
             db = c_DB.connect_DB()
             temp_str = """INSERT INTO Offense('name') VALUES(:n)"""
             db.cursor().execute(temp_str, {"n": name})
@@ -22,11 +30,12 @@ class Offense:
             if db:
                 db.close()
 
-
-    def get_name(self):
+    @property
+    def name(self):
         return self.__name
 
-    def set_name(self, n):
+    @name.setter
+    def name(self, n):
         if len(n) <= 1:
             raise ValueError("Error: Offense name must be greater than one Character")
         else:
@@ -45,4 +54,3 @@ class Offense:
             finally:
                 if db:
                     db.close()
-
