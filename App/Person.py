@@ -7,34 +7,49 @@ class Person:
     and Get, Set All Properties
     """
 
-    cls = None
 
-    def __init__(self, fn: str, father: str, ls: str, gender: str, by: str, address: str):
-        cls = self
+    def __init__(self, fn: str, father: str, ls: str, gender: str, by, address: str):
         self.first_name = fn.strip()
         self.father = father.strip()
         self.last_name = ls.strip()
         self.gender = gender.strip()
-        self.birth_year = by.strip()
+        self.birth_year = by
         self.address = address.strip()
 
-    def __str__(self):
-        print(f'First Name: {self.first_name}\n'
-              f'Father: {self.father}\n'
-              f'Last Name: {self.last_name}\n'
-              f'Gender: {self.gender}\n'
-              f'Birth Year: {self.birth_year}\n'
-              f'Address: {self.address}')
+    @classmethod
+    def __str__(cls):
+        global db
+        try:
+            db = c_DB.connect_DB()
+            temp_str = """SELECT * FROM Person"""
+            count = 0
+            for row in db.cursor().execute(temp_str).fetchall():
+                count+=1
+                print(str(count), "".center(50, '-'))
+                print(f'ID:         {row[0]}\n'
+                      f'First Name: {row[1]}\n'
+                      f'Father:     {row[2]}\n'
+                      f'Last Name:  {row[3]}\n'
+                      f'Gender:     {row[4]}\n'
+                      f'Birth Year: {row[5]}\n'
+                      f'Address:    {row[6]}')
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.commit()
+                db.close()
 
-    def add_person(self, fn: str, father: str, ls: str, gender: str, by: str, address: str):
+    @classmethod
+    def add_person(cls, fn: str, father: str, ls: str, gender: str, by, address: str):
         """Add person to DataBase and check all Values"""
         global db
         try:
-            Person(fn, father, ls, gender, by, address)
+            p = Person(fn, father, ls, gender, by, address)
             db = c_DB.connect_DB()
             temp_str = """INSERT INTO Person('first_name', 'father', 'last_name', 'gender', 'birth_year', 'address')
                       VALUES (?, ?, ?, ?, ?, ?)"""
-            temp_val = (fn, father, ls, gender, by, address)
+            temp_val = (p.first_name, p.father, p.last_name, p.gender, p.birth_year, p.address)
             cu = db.cursor()
             cu.execute(temp_str, temp_val)
             db.commit()
@@ -44,6 +59,8 @@ class Person:
         finally:
             if db:
                 db.close()
+
+    """Start Getter and Setter Properties."""
 
     @property
     def first_name(self):
@@ -61,7 +78,7 @@ class Person:
     @father.setter
     def father(self, f: str):
         if c_DB.check(f, "Error: Father must be greater than one Character"):
-            self.__father = f
+            self.__father = f.strip()
 
     @property
     def last_name(self):
@@ -88,33 +105,20 @@ class Person:
         return self.__birth_year
 
     @birth_year.setter
-    def birth_year(self, by: str):
-        if by.__contains__(' '):
-            raise ValueError("Error: Birth Year must be don't contain space")
-        else:
-            if len(by) > 10:
-                raise ValueError("Error: Birth Year is correct")
+    def birth_year(self, by: c_DB.d):
+        try:
+            temp_date = c_DB.d(by.year, by.month, by.day)
+            date_now = c_DB.d.today()
+            if temp_date > date_now:
+                raise ValueError(
+                    f'Error: Birth Year must be smaller than {date_now.day}:{date_now.month}:{date_now.year}')
             else:
-                try:
-                    temp = c_DB.dt.strptime(by, "%d-%m-%Y")
-                    date_now = c_DB.dt.now()
-                    if temp > date_now:
-                        raise TypeError(
-                            f'Error: Birth Year must be smaller than {date_now.day}:{date_now.month}:{date_now.year}')
-                    else:
-                        self.__birth_year = by
-                except TypeError as ex:
-                    raise TypeError(ex)
-        # if not (by.__contains__(' ')):
-        #     temp = c_DB.dt.strptime(by, "%d-%m-%Y")
-        #     date_now = c_DB.dt.now()
-        #     if temp > c_DB.dt.now():
-        #         raise ValueError(
-        #             f'Error: Birth Year must be smaller than {date_now.day}:{date_now.month}:{date_now.year}')
-        #     else:
-        #         self.__birth_year = by
-        # else:
-        #     raise ValueError("Error: Birth Year must be don't contain space")
+                if temp_date < c_DB.d(1000, 1, 1):
+                    raise ValueError("Error: Birth Year must be greater than 1000:01:01")
+                else:
+                    self.__birth_year = by
+        except Exception as ex:
+            raise Exception(ex)
 
     @property
     def address(self):
@@ -124,3 +128,5 @@ class Person:
     def address(self, a: str):
         if c_DB.check(a, "Error: Address must be greater than one Character"):
             self.__address = a
+
+    """End Getter and Setter Properties."""

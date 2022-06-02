@@ -8,7 +8,7 @@ class Convicts:
     """
     cls = None
 
-    def __init__(self, from_date: str, to_date: str, person_id: int, offense_id: int):
+    def __init__(self, from_date, to_date: str, person_id: int, offense_id: int):
         cls = self
         self.from_date = from_date
         self.to_date = to_date
@@ -21,14 +21,15 @@ class Convicts:
               f'Person ID: {self.person_id}\n'
               f'Offense ID: {self.offense_id}')
 
-    def add_convicts(self, from_date, to_date, person_id, offense_id):
+    @classmethod
+    def add_convicts(cls, from_date, to_date, person_id, offense_id):
         global db
         try:
             db = c_DB.connect_DB()
-            Convicts(from_date, to_date, person_id, offense_id)
+            c = Convicts(from_date, to_date, person_id, offense_id)
             db = c_DB.connect_DB()
             temp_str = """INSERT INTO Convicts('from_date', 'to_date', 'person_id', 'offense_id') VALUES(?, ?, ?, ?)"""
-            temp_val = (from_date, to_date, person_id, offense_id)
+            temp_val = (c.from_date, c.to_date, c.person_id, c.offense_id)
             db.cursor().execute(temp_str, temp_val)
             db.commit()
             print("successfully inserted")
@@ -44,29 +45,52 @@ class Convicts:
             if db:
                 db.close()
 
+    @classmethod
+    def select_persons_between_date(cls, first_date, second_date):
+        global db
+        try:
+            db = c_DB.connect_DB()
+            # temp_str = """SELECT * FROM Convicts WHERE from_date >= (?) and from_date <= (?)"""
+            temp_str = """SELECT * FROM Convicts WHERE from_date BETWEEN (?) and (?)"""
+            temp_val = (first_date, second_date)
+            count = 0
+            for row in db.cursor().execute(temp_str, temp_val).fetchall():
+                count+=1
+                print(str(count), "".center(50, '-'))
+                print(f'ID:          {row[0]}\n'
+                      f'From Date:   {row[1]}\n'
+                      f'To Date:     {row[2]}\n'
+                      f'Person ID:   {row[3]}\n'
+                      f'Offense ID:  {row[4]}')
+        except c_DB.sq.OperationalError as ex:
+            raise c_DB.sq.OperationalError(ex)
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.close()
+
+    """Start Getter and Setter Properties."""
+
     @property
     def from_date(self):
         return self.__from_date
 
     @from_date.setter
-    def from_date(self, fd: str):
-        if fd.__contains__(' '):
-            raise ValueError("Error: From Date must be don't contain space")
-        else:
-            if len(fd) > 10:
-                raise ValueError("Error: From Date is correct")
+    def from_date(self, fd):
+        try:
+            temp_date = c_DB.d(fd.year, fd.month, fd.day)
+            date_now = c_DB.d.today()
+            if temp_date > date_now:
+                raise ValueError(
+                    f'Error: From Date must be smaller than {date_now.day}:{date_now.month}:{date_now.year}')
             else:
-                try:
-                    temp = c_DB.dt.strptime(fd, "%d-%m-%Y")
-                    date_now = c_DB.dt.now()
-                    if temp > date_now:
-                        raise TypeError(
-                            f'Error: From Date must be smaller than {date_now.day}:{date_now.month}:{date_now.year}')
-                    else:
-                        self.__from_date = fd
-
-                except TypeError as ex:
-                    raise ex
+                if temp_date < c_DB.d(1000, 1, 1):
+                    raise ValueError("Error: From Date must be greater than 1000:01:01")
+                else:
+                    self.__from_date = fd
+        except Exception as ex:
+            raise Exception(ex)
 
     @property
     def to_date(self):
@@ -75,20 +99,16 @@ class Convicts:
     @to_date.setter
     def to_date(self, td):
         try:
-            if td.__contains__(' '):
-                raise ValueError("Error: To Date must be don't contain space")
+            temp_date = c_DB.d(td.year, td.month, td.day)
+            date_now = c_DB.d.today()
+            if temp_date < c_DB.d(1000, 1, 1):
+                raise ValueError("Error: To Date must be greater than 1000:01:01")
             else:
-                if len(td) > 10:
-                    raise ValueError("Error: To Date is correct")
-                else:
-                    temp_td = c_DB.dt.strptime(td, "%d-%m-%Y")
-                    temp_fd = c_DB.dt.strptime(self.from_date, "%d-%m-%Y")
-                    if temp_fd > temp_td:
-                        raise TypeError("Error: From Date don't must be greater than To Date ")
-                    else:
-                        self.__to_date = td
-        except TypeError as ex:
-            raise ex
+                if self.from_date > temp_date:
+                    raise ValueError("Error: 'From Date' must be smaller than 'To Date'")
+                self.__to_date = td
+        except Exception as ex:
+            raise Exception(ex)
 
     @property
     def person_id(self):
@@ -143,3 +163,4 @@ class Convicts:
             finally:
                 if db:
                     db.close()
+    """End Getter and Setter Properties."""

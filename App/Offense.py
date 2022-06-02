@@ -15,14 +15,15 @@ class Offense:
     def __str__(self):
         print(f'Name: {self.name}')
 
-    def add_offense(self, name: str):
+    @classmethod
+    def add_offense(cls, name: str):
         """Add Offense name In DB and check value"""
         global db
         try:
-            Offense(name)
+            o = Offense(name)
             db = c_DB.connect_DB()
             temp_str = """INSERT INTO Offense('name') VALUES(:n)"""
-            db.cursor().execute(temp_str, {"n": name})
+            db.cursor().execute(temp_str, {"n": o.name})
             db.commit()
         except Exception as ex:
             raise ex

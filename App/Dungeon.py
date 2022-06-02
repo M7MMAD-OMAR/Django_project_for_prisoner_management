@@ -17,15 +17,15 @@ class Dungeon:
         print(f'Name: {self.name}\n'
               f'Size: {self.size}\n')
 
-
-    def add_dungeon(self, name: str, size: int):
+    @classmethod
+    def add_dungeon(cls, name: str, size: int):
         """Add dungeon in DB"""
         global db
         try:
-            Dungeon(name, size)
+            d = Dungeon(name, size)
             db = c_DB.connect_DB()
             temp_str = """INSERT INTO Dungeon('name', 'size') VALUES(?, ?)"""
-            temp_val = (name, size)
+            temp_val = (d.name, d.size)
             cu = db.cursor()
             cu.execute(temp_str, temp_val)
             db.commit()

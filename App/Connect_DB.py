@@ -1,6 +1,8 @@
 import sqlite3 as sq
-from datetime import datetime as dt
+from datetime import datetime as dt, date as d
 
+
+#   from datetime import datetime as dt, date as d
 def connect_DB():
     """Connect DataBase"""
     try:
@@ -13,7 +15,6 @@ def connect_DB():
         raise "Error: while working with SQLite"
 
 
-
 def check(s: str, message: str):
     """check String values and raise ValueError
     if value false return raise Error
@@ -23,3 +24,17 @@ def check(s: str, message: str):
         raise ValueError(message)
     else:
         return True
+
+
+# def print_data(str_sql, message, *args):
+#     print(message.center(50, '_'))
+#     global db
+#     try:
+#         db = connect_DB()
+#         for args, row in zip(args, db.cursor().execute(str_sql).fetchall()):
+#
+#     except Exception as ex:
+#         raise ex
+#     finally:
+#         if db:
+#             db.close()
