@@ -27,11 +27,9 @@
       <change beforePath="$PROJECT_DIR$/App/Dungeon.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Dungeon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Dungeon_Moves.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Dungeon_Moves.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Offense.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Offense.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Person.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Person.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Visitings.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/Visitings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/DataBase.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB/DataBase.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/DataBase.db-journal" beforeDir="false" />
     </list>
     <list id="69fcc629-33bb-436c-804c-7fe61bedc039" name="datatime" comment="create date time" />
     <option name="SHOW_DIALOG" value="false" />

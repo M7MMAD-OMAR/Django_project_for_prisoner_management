@@ -12,8 +12,20 @@ class Offense:
         cls = self
         self.name = name
 
-    def __str__(self):
-        print(f'Name: {self.name}')
+    @classmethod
+    def __str__(cls):
+        global db
+        try:
+            db = c_DB.connect_DB()
+            temp_str = """SELECT * FROM Offense"""
+            for row in db.cursor().execute(temp_str).fetchall():
+                print(f'ID:         {row[0]}\n'
+                      f'Name:  {row[1]}')
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.close()
 
     @classmethod
     def add_offense(cls, name: str):
@@ -30,6 +42,8 @@ class Offense:
         finally:
             if db:
                 db.close()
+
+    """Start Getter and Setter Properties."""
 
     @property
     def name(self):
@@ -55,3 +69,5 @@ class Offense:
             finally:
                 if db:
                     db.close()
+
+    """End Getter and Setter Properties."""

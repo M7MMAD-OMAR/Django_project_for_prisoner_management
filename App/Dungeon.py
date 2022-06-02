@@ -6,16 +6,29 @@ class Dungeon:
     have class Dungeon method and properties Name, Size.......
     and Get, Set All Properties
     """
-    cls = None
 
     def __init__(self, name: str, size: int):
-        cls = self
         self.name = name.strip()
         self.size = size
 
-    def __str__(self):
-        print(f'Name: {self.name}\n'
-              f'Size: {self.size}\n')
+    @classmethod
+    def __str__(cls):
+        global db
+        try:
+            db = c_DB.connect_DB()
+            temp_str = """SELECT * FROM Dungeon"""
+            count = 0
+            for row in db.cursor().execute(temp_str).fetchall():
+                count += 1
+                print(str(count), "".center(50, '-'))
+                print(f'ID:    {row[0]}\n'
+                      f'Name:  {row[1]}\n'
+                      f'Size:  {row[2]}')
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.close()
 
     @classmethod
     def add_dungeon(cls, name: str, size: int):

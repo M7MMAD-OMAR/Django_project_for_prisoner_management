@@ -7,51 +7,51 @@ class Visitings:
     and Get, Set All Properties
     """
 
-    cls = None
-
     def __init__(self, date_visited: c_DB.d, person_id: int, visitor_name: str, mountIn_minutes):
-        cls = self
         self.date_visited = date_visited
         self.person_id = person_id
         self.visitor_name = visitor_name.strip()
-        self.mountIn_minutes = mountIn_minutes.strip()
+        self.mountIn_minutes = mountIn_minutes
 
-    def __str__(self):
+    @classmethod
+    def __str__(cls):
         global db
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Visitings"""
+            count = 0
             for row in db.cursor().execute(temp_str).fetchall():
-                print(f'ID:              {row[0]}'
+                count+=1
+                print(str(count), "".center(50, '-'))
+                print(f'ID:              {row[0]}\n'
                       f'Date Visited:    {row[1]}\n'
                       f'Person Id:       {row[2]}\n'
                       f'Visitor Name:    {row[3]}\n'
                       f'Mountin Minutes: {row[4]}')
+                print(type(row[4]))
         except Exception as ex:
             raise Exception(ex)
         finally:
             if db:
                 db.close()
 
-
     @classmethod
-    def add_Visiting(cls, date_visited: c_DB.d, person_id: int, visitor_name: str, mountIn_minutes: str):
+    def add_Visiting(cls, date_visited: c_DB.d, person_id: int, visitor_name: str, mountIn_minutes):
         global db
         try:
+            # db = c_DB.connect_DB()
             v = Visitings(date_visited, person_id, visitor_name, mountIn_minutes)
             db = c_DB.connect_DB()
             temp_str = """INSERT INTO Visitings('date_visited', 'person_id', 'visitor_name', 'mountin_minuts')
                       VALUES (?, ?, ?, ?)"""
-            temp_val = (v.date_visited, v.person_id, v.visitor_name, v.mountIn_minutes)
+            temp_val = (v.date_visited, v.person_id, v.visitor_name, v.mountIn_minutes.strftime("%H:%M"))
             db.cursor().execute(temp_str, temp_val)
             db.commit()
-            print("added Visitings")
         except Exception as ex:
             raise Exception(ex)
-
-
-
-
+        finally:
+            if db:
+                db.close()
 
     """Start Getter and Setter Properties."""
 
@@ -75,13 +75,12 @@ class Visitings:
         except Exception as ex:
             raise Exception(ex)
 
-
     @property
     def person_id(self):
         return self.__person_id
 
     @person_id.setter
-    def person_id(self, pi):
+    def person_id(self, pi: int):
         if pi <= 0:
             raise ValueError("Error: Person ID must be greater than Zero")
         else:
@@ -116,16 +115,14 @@ class Visitings:
 
     @property
     def mountIn_minutes(self):
-        return self.mountIn_minutes
+        return self.__mountIn_minutes
 
     @mountIn_minutes.setter
     def mountIn_minutes(self, mm):
         try:
-            if len(mm) <= 0:
-                raise ValueError("Error: No value entered for the date")
-            else:
-                c_DB.dt.strptime(mm, "%H:%M")
-                self.__mountIn_minutes = mm
-        except ValueError as ex:
-            raise ValueError(ex)
+
+            self.__mountIn_minutes = mm
+        except Exception as ex:
+            raise Exception(ex.__class__)
+
     """End Getter and Setter Properties."""

@@ -6,20 +6,34 @@ class Convicts:
     have class Convicts method and properties From date, To date, Person ID.......
     and Get, Set All Properties
     """
-    cls = None
 
     def __init__(self, from_date, to_date: str, person_id: int, offense_id: int):
-        cls = self
         self.from_date = from_date
         self.to_date = to_date
         self.person_id = person_id
         self.offense_id = offense_id
 
-    def __str__(self):
-        print(f'From Date: {self.from_date}\n'
-              f'To Date: {self.to_date}\n'
-              f'Person ID: {self.person_id}\n'
-              f'Offense ID: {self.offense_id}')
+    @classmethod
+    def __str__(cls):
+        global db
+        try:
+            db = c_DB.connect_DB()
+            temp_str = """SELECT * FROM Convicts"""
+            count = 0
+            for row in db.cursor().execute(temp_str).fetchall():
+                count+=1
+                print(str(count), "".center(50, '-'))
+                print(f'ID:           {row[0]}\n'
+                      f'From Date:    {row[1]}\n'
+                      f'To Date:      {row[2]}\n'
+                      f'Person ID:    {row[3]}\n'
+                      f'Offense ID:   {row[4]}')
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.close()
+
 
     @classmethod
     def add_convicts(cls, from_date, to_date, person_id, offense_id):
@@ -50,12 +64,11 @@ class Convicts:
         global db
         try:
             db = c_DB.connect_DB()
-            # temp_str = """SELECT * FROM Convicts WHERE from_date >= (?) and from_date <= (?)"""
             temp_str = """SELECT * FROM Convicts WHERE from_date BETWEEN (?) and (?)"""
             temp_val = (first_date, second_date)
             count = 0
             for row in db.cursor().execute(temp_str, temp_val).fetchall():
-                count+=1
+                count += 1
                 print(str(count), "".center(50, '-'))
                 print(f'ID:          {row[0]}\n'
                       f'From Date:   {row[1]}\n'
@@ -163,4 +176,5 @@ class Convicts:
             finally:
                 if db:
                     db.close()
+
     """End Getter and Setter Properties."""

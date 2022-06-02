@@ -7,18 +7,31 @@ class Dungeon_Moves:
     and Get, Set All Properties
     """
 
-    cls = None
-
     def __init__(self, dungeon_id: int, person_id: int, from_date):
-        cls = self
         self.dungeon_id = dungeon_id
         self.person_id = person_id
         self.from_date = from_date
 
-    def __str__(self):
-        print(f'Dungeon ID: {self.dungeon_id}\n'
-              f'Person ID: {self.person_id}\n'
-              f'From Date: {self.from_date}')
+    @classmethod
+    def __str__(cls):
+        global db
+        try:
+            db = c_DB.connect_DB()
+            temp_str = """SELECT * FROM Dungeon_Moves"""
+            count = 0
+            for row in db.cursor().execute(temp_str).fetchall():
+                count+=1
+                print(str(count), "".center(50, '-'))
+                print(f'ID:         {row[0]}\n'
+                      f'Dungeon ID: {row[2]}\n'
+                      f'Person ID:  {row[1]}\n'
+                      f'From Date:  {row[3]}')
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.close()
+
 
     @classmethod
     def add_dungeon_moves(cls, dungeon_id: int, person_id: int, from_date: str):
@@ -38,8 +51,8 @@ class Dungeon_Moves:
             if db:
                 db.close()
 
-
     """Start Getter and Setter Properties."""
+
     @property
     def dungeon_id(self):
         return self.__dungeon_id
@@ -113,4 +126,5 @@ class Dungeon_Moves:
                     self.__from_date = fd
         except Exception as ex:
             raise Exception(ex)
+
     """End Getter and Setter Properties."""
