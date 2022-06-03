@@ -37,6 +37,7 @@ class Convicts:
 
     @classmethod
     def add_convicts(cls, from_date, to_date, person_id, offense_id):
+        """Add convicts to DB and check all values"""
         global db
         try:
             db = c_DB.connect_DB()
@@ -46,7 +47,6 @@ class Convicts:
             temp_val = (c.from_date, c.to_date, c.person_id, c.offense_id)
             db.cursor().execute(temp_str, temp_val)
             db.commit()
-            print("successfully inserted")
         except c_DB.sq.ProgrammingError as ex:
             raise ex
         except NameError as ex:
@@ -60,21 +60,65 @@ class Convicts:
                 db.close()
 
     @classmethod
-    def select_persons_between_date(cls, first_date, second_date):
+    def select_persons_by_offense(cls, offense_id):
+        """selec all persons by offense id and print all results"""
         global db
         try:
             db = c_DB.connect_DB()
+            temp_str = """SELECT * FROM Person WHERE Id in 
+                       (SELECT DISTINCT person_id FROM Convicts WHERE offense_id=:oID)"""
+            cu = db.cursor()
+            if not (cu.execute(temp_str, {"oID":offense_id})):
+                raise ValueError("Warning: Don't Results")
+            else:
+                count = 0
+                for row in cu.fetchall():
+                    count += 1
+                    print(str(count), "".center(50, '-'))
+                    print(f'ID:         {row[0]}\n'
+                          f'First Name: {row[1]}\n'
+                          f'Father:     {row[2]}\n'
+                          f'Last Name:  {row[3]}\n'
+                          f'Gender:     {row[4]}\n'
+                          f'Birth Year: {row[5]}\n'
+                          f'Address:    {row[6]}')
+        except c_DB.sq.OperationalError as ex:
+            raise c_DB.sq.OperationalError(ex)
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.close()
+
+
+
+    @classmethod
+    def select_persons_between_date(cls, first_date, last_date):
+        """Results person if person date between the two dates"""
+        global db
+        try:
+            db = c_DB.connect_DB()
+            if first_date > last_date:
+                first_date, last_date = last_date, first_date
             temp_str = """SELECT * FROM Convicts WHERE from_date BETWEEN (?) and (?)"""
-            temp_val = (first_date, second_date)
+            temp_val = (first_date, last_date)
+            # Format result
             count = 0
+            print("#".center(8, ' '), end=' | ')
+            print("ID".center(8, ' '), end=' | ')
+            print("From Date".center(15, ' '), end=' | ')
+            print("To Date".center(15, ' '), end=' | ')
+            print("Person ID".center(8, ' '), end=' | ')
+            print("Offense ID".center(8, ' '), end=' | \n')
+            print("-" * 100)
             for row in db.cursor().execute(temp_str, temp_val).fetchall():
                 count += 1
-                print(str(count), "".center(50, '-'))
-                print(f'ID:          {row[0]}\n'
-                      f'From Date:   {row[1]}\n'
-                      f'To Date:     {row[2]}\n'
-                      f'Person ID:   {row[3]}\n'
-                      f'Offense ID:  {row[4]}')
+                print(f' {count} '.center(7, ' '),
+                      f' {row[0]} '.center(14, ' '),
+                      f' {row[1]} '.center(12, ' '),
+                      f' {row[2]} '.center(21, ' '),
+                      f' {row[3]} '.center(10, ' '),
+                      f' {row[4]} '.center(12, ' '))
         except c_DB.sq.OperationalError as ex:
             raise c_DB.sq.OperationalError(ex)
         except Exception as ex:
