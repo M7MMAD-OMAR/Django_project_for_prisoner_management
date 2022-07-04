@@ -3,16 +3,12 @@ import json
 import Connect_DB as c_DB
 
 
-
-
-
 class Person:
     """
     have class Person method and properties First Name, Father, Last Name.......
     and Get, Set All Properties
     """
     __json_file = "../JSON/person.json"
-
     def __init__(self, fn: str, father: str, ls: str, gender: str, by, address: str):
         self.first_name = fn.strip()
         self.father = father.strip()
@@ -23,6 +19,7 @@ class Person:
 
     @classmethod
     def __str__(cls):
+        """Print all person values by DB"""
         db = None
         try:
             db = c_DB.connect_DB()
@@ -37,7 +34,37 @@ class Person:
                       f'Last Name:  {row[3]}\n'
                       f'Gender:     {row[4]}\n'
                       f'Birth Year: {row[5]}\n'
-                      f'Address:    {row[6]}')
+                      f'Address:    {row[6]}\n')
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.commit()
+                db.close()
+
+    @classmethod
+    def __write_json(cls, date):
+        """Add or write or delete data in person.json file"""
+        with open(Person.__json_file, "w") as jf:
+            json.dump(date, jf, indent=4)
+
+    @classmethod
+    def reset_json_by_database(cls):
+        """
+        Connect DB and select all persons
+        loading json file and append values to new json file
+        finally clear json file and add all values with DB
+        Warning: This method will delete all old values in json files then add persons with DB
+        """
+        db = None
+        try:
+            db = c_DB.connect_DB()
+            temp_str = """SELECT * FROM Person"""
+            date = []
+            for row in db.cursor().execute(temp_str).fetchall():
+                date.append({"Id": row[0], "first_name": row[1], "father": row[2], "last_name": row[3],
+                             "gender": row[4], "birth_year": str(row[5]), "address": row[6]})
+            Person.__write_json(date)
         except Exception as ex:
             raise Exception(ex)
         finally:
@@ -47,11 +74,51 @@ class Person:
 
 
     @classmethod
-    def __write_json(cls, date):
-        """Write data in person.json file"""
-        with open(Person.__json_file, "w") as jf:
-            json.dump(date, jf, indent=4)
+    def delete_person_by_id(cls, person_id):
+        """
+        delete person from database by id
+        and delete person in person.json file by id
+        """
+        db = None
+        try:
+            db = c_DB.connect_DB()
+            temp_sql_select = """SELECT Id from Person WHERE Id = :id;"""
+            temp_sql_delete = """DELETE FROM Person WHERE Id = :id;"""
 
+            # select person by id in order to check find person id
+            cu = db.cursor()
+            cu.execute(temp_sql_select, {"id": person_id})
+            if not cu.fetchone():
+                raise ValueError("Error: Person ID is not found in your data, please try again!")
+
+            # it's True! delete the person by id
+            cu = db.cursor()
+            cu.execute(temp_sql_delete, {"id": person_id})
+            db.commit()
+
+            # Delete person in person.json file, by person ID
+            new_person_data = []
+            with open(Person.__json_file, "r") as jf:
+                data = json.load(jf)
+
+            # if id in json file keep change
+            # else append person json in new_person_data
+            # finally update person.json file by new_person_data
+            for row in data:
+                if row["Id"] == person_id:
+                    pass
+                else:
+                    new_person_data.append(row)
+            Person.__write_json(new_person_data)
+            print("Delete Person in json file and Database successfully")
+
+        except ValueError as ex:
+            raise ex
+        except Exception as ex:
+            raise ex
+        finally:
+            if db:
+                db.close()
 
     @classmethod
     def add_person(cls, fn: str, father: str, ls: str, gender: str, by, address: str):
@@ -61,31 +128,31 @@ class Person:
             p = Person(fn, father, ls, gender, by, address)
             db = c_DB.connect_DB()
             temp_sql_insert = """INSERT INTO Person('first_name', 'father', 'last_name', 'gender', 'birth_year', 'address')
-                      VALUES (:fn, :f, :ls, :g, :by, :a)"""
-            temp_sql_select = """SELECT  Id FROM Person ORDER BY Id DESC LIMIT 1"""
+                          VALUES (:fn, :f, :ls, :g, :by, :a);"""
+            temp_sql_select = """SELECT  Id FROM Person ORDER BY Id DESC LIMIT 1;"""
             temp_val = {"fn": p.first_name, "f": p.father, "ls": p.last_name, "g": p.gender, "by": p.birth_year,
                         "a": p.address}
             cu = db.cursor()
             cu.execute(temp_sql_insert, temp_val)
             db.commit()
-            print("Sent Values Person successfully")
-
 
             # Add person in person.json file by id person inserted.
             cu.execute(temp_sql_select)
 
             id = cu.fetchone()
+
             # Convert person id to Integer
             id = int(id[0])
 
             # Open person.json file and add person
             with open(Person.__json_file) as jf:
                 date = json.load(jf)
-                temp = date["persons"]
-                temp.append({"Id": id, "first_name": p.first_name, "father": p.father, "last_name": p.last_name,
-                             "gender": p.gender, "birth_year": str(p.birth_year), "address": p.address})
-                Person.__write_json(date)
-            print("Added Person in json file successfully")
+            temp = date["persons"]
+            temp.append({"Id": id, "first_name": p.first_name, "father": p.father, "last_name": p.last_name,
+                         "gender": p.gender, "birth_year": str(p.birth_year), "address": p.address})
+            Person.__write_json(date)
+            print("Added Person in json file and Database successfully")
+
         except Exception as ex:
             raise ex
         finally:

@@ -11,10 +11,12 @@ import Dungeon as d, Person as p, Visitings as v, Offense as o, Dungeon_Moves as
 # import Dungeon as d, Person as p, Visitings as v, Offense as o, Dungeon_Moves as dm
 if __name__ == '__main__':
     try:
-
-        p.Person.add_person(' yasmeen  ', ' ali  ', ' saleem  ', "  female   ", date(2000, 8, 11), 'Aziz')
+        # p.Person.add_person(' yasmeen  ', ' ali  ', ' saleem  ', "  female   ", date(2000, 8, 11), 'Aziz')
         # p.Person.add_person('mona  ', ' omar', 'khaled  ', "female", date(2001, 11, 8), 'Turkey, Istanbul')
         # p.Person.add_person('   amane   ', '  muhammad  ', ' hamdo ', "     female", date(1199, 1, 1), 'istanbul')
+        # p.Person.__str__()
+        # p.Person.delete_person_by_id(143)
+        # p.Person.reset_json_by_database()
         """Person(115, 116, 117)"""
 
         # c.Convicts.add_convicts(date(2003, 10, 20), date(2020, 1, 1), 115, 4)
