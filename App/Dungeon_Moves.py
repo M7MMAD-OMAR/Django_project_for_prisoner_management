@@ -14,7 +14,7 @@ class Dungeon_Moves:
 
     @classmethod
     def __str__(cls):
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Dungeon_Moves"""
@@ -34,7 +34,7 @@ class Dungeon_Moves:
 
     @classmethod
     def add_dungeon_moves(cls, dungeon_id: int, person_id: int, from_date):
-        global db
+        db = None
         try:
             dm = Dungeon_Moves(dungeon_id, person_id, from_date)
             db = c_DB.connect_DB()
@@ -53,7 +53,7 @@ class Dungeon_Moves:
     @classmethod
     def select_person_inside_dungeons(cls, person_id):
         """Results the person inside dungeon by person id And print all results"""
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Dungeon_Moves WHERE person_id=:pID"""
@@ -95,7 +95,7 @@ class Dungeon_Moves:
         if di <= 0:
             raise ValueError("Error: Dungeon ID must be greater than Zero")
         else:
-            global db
+            db = None
             try:
                 db = c_DB.connect_DB()
                 temp_str = """SELECT Id FROM Dungeon WHERE Id=:id"""
@@ -122,7 +122,7 @@ class Dungeon_Moves:
         if pi <= 0:
             raise ValueError("Error: Person ID must be greater than Zero")
         else:
-            global db
+            db = None
             try:
                 db = c_DB.connect_DB()
                 temp_str = """SELECT Id FROM Person WHERE Id=:id"""

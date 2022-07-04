@@ -28,7 +28,7 @@ def check(s: str, message: str):
 
 # def print_data(str_sql, message, *args):
 #     print(message.center(50, '_'))
-#     global db
+#     db = None
 #     try:
 #         db = connect_DB()
 #         for args, row in zip(args, db.cursor().execute(str_sql).fetchall()):

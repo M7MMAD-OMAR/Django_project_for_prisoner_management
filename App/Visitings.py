@@ -15,7 +15,7 @@ class Visitings:
 
     @classmethod
     def __str__(cls):
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Visitings"""
@@ -37,7 +37,7 @@ class Visitings:
     @classmethod
     def add_Visiting(cls, date_visited: c_DB.d, person_id: int, visitor_name: str, mountIn_minutes):
         """Add visitor in DB and check values"""
-        global db
+        db = None
         try:
             v = Visitings(date_visited, person_id, visitor_name, mountIn_minutes)
             db = c_DB.connect_DB()
@@ -55,7 +55,7 @@ class Visitings:
     @classmethod
     def select_visitor_by_dateTime(cls, first_date, last_date, first_time=c_DB.t(00, 00), last_time=c_DB.t(23, 59)):
         """Results all values if date and time inside range"""
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             if first_date > last_date:
@@ -119,7 +119,7 @@ class Visitings:
         if pi <= 0:
             raise ValueError("Error: Person ID must be greater than Zero")
         else:
-            global db
+            db = None
             try:
                 db = c_DB.connect_DB()
                 temp_str = """SELECT Id FROM Person WHERE Id=:id"""

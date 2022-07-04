@@ -12,7 +12,7 @@ import Dungeon as d, Person as p, Visitings as v, Offense as o, Dungeon_Moves as
 if __name__ == '__main__':
     try:
 
-        # p.Person.add_person(' ali  ', ' omar  ', ' saleem  ', "  male", date(1199, 1, 1), 'Aziz')
+        p.Person.add_person(' yasmeen  ', ' ali  ', ' saleem  ', "  female   ", date(2000, 8, 11), 'Aziz')
         # p.Person.add_person('mona  ', ' omar', 'khaled  ', "female", date(2001, 11, 8), 'Turkey, Istanbul')
         # p.Person.add_person('   amane   ', '  muhammad  ', ' hamdo ', "     female", date(1199, 1, 1), 'istanbul')
         """Person(115, 116, 117)"""

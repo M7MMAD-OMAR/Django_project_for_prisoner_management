@@ -1,4 +1,9 @@
+import json
+
 import Connect_DB as c_DB
+
+
+
 
 
 class Person:
@@ -6,7 +11,7 @@ class Person:
     have class Person method and properties First Name, Father, Last Name.......
     and Get, Set All Properties
     """
-
+    __json_file = "../JSON/person.json"
 
     def __init__(self, fn: str, father: str, ls: str, gender: str, by, address: str):
         self.first_name = fn.strip()
@@ -18,13 +23,13 @@ class Person:
 
     @classmethod
     def __str__(cls):
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Person"""
             count = 0
             for row in db.cursor().execute(temp_str).fetchall():
-                count+=1
+                count += 1
                 print(str(count), "".center(50, '-'))
                 print(f'ID:         {row[0]}\n'
                       f'First Name: {row[1]}\n'
@@ -40,20 +45,47 @@ class Person:
                 db.commit()
                 db.close()
 
+
+    @classmethod
+    def __write_json(cls, date):
+        """Write data in person.json file"""
+        with open(Person.__json_file, "w") as jf:
+            json.dump(date, jf, indent=4)
+
+
     @classmethod
     def add_person(cls, fn: str, father: str, ls: str, gender: str, by, address: str):
-        """Add person to DataBase and check all Values"""
-        global db
+        """Add person to DataBase and person.json file and check all Values"""
+        db = None
         try:
             p = Person(fn, father, ls, gender, by, address)
             db = c_DB.connect_DB()
-            temp_str = """INSERT INTO Person('first_name', 'father', 'last_name', 'gender', 'birth_year', 'address')
-                      VALUES (?, ?, ?, ?, ?, ?)"""
-            temp_val = (p.first_name, p.father, p.last_name, p.gender, p.birth_year, p.address)
+            temp_sql_insert = """INSERT INTO Person('first_name', 'father', 'last_name', 'gender', 'birth_year', 'address')
+                      VALUES (:fn, :f, :ls, :g, :by, :a)"""
+            temp_sql_select = """SELECT  Id FROM Person ORDER BY Id DESC LIMIT 1"""
+            temp_val = {"fn": p.first_name, "f": p.father, "ls": p.last_name, "g": p.gender, "by": p.birth_year,
+                        "a": p.address}
             cu = db.cursor()
-            cu.execute(temp_str, temp_val)
+            cu.execute(temp_sql_insert, temp_val)
             db.commit()
             print("Sent Values Person successfully")
+
+
+            # Add person in person.json file by id person inserted.
+            cu.execute(temp_sql_select)
+
+            id = cu.fetchone()
+            # Convert person id to Integer
+            id = int(id[0])
+
+            # Open person.json file and add person
+            with open(Person.__json_file) as jf:
+                date = json.load(jf)
+                temp = date["persons"]
+                temp.append({"Id": id, "first_name": p.first_name, "father": p.father, "last_name": p.last_name,
+                             "gender": p.gender, "birth_year": str(p.birth_year), "address": p.address})
+                Person.__write_json(date)
+            print("Added Person in json file successfully")
         except Exception as ex:
             raise ex
         finally:

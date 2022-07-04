@@ -6,15 +6,13 @@ class Offense:
     have class Offense method and properties name.......
     and Get, Set All Properties
     """
-    cls = None
 
     def __init__(self, name: str):
-        cls = self
         self.name = name
 
     @classmethod
     def __str__(cls):
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Offense"""
@@ -30,7 +28,7 @@ class Offense:
     @classmethod
     def add_offense(cls, name: str):
         """Add Offense name In DB and check value"""
-        global db
+        db = None
         try:
             o = Offense(name)
             db = c_DB.connect_DB()
@@ -54,7 +52,7 @@ class Offense:
         if len(n) <= 1:
             raise ValueError("Error: Offense name must be greater than one Character")
         else:
-            global db
+            db = None
             try:
                 db = c_DB.connect_DB()
                 temp_str = """SELECT name FROM Offense WHERE name=:n"""

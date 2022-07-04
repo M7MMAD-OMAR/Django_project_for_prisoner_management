@@ -13,7 +13,7 @@ class Dungeon:
 
     @classmethod
     def __str__(cls):
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Dungeon"""
@@ -33,7 +33,7 @@ class Dungeon:
     @classmethod
     def add_dungeon(cls, name: str, size: int):
         """Add dungeon in DB"""
-        global db
+        db = None
         try:
             d = Dungeon(name, size)
             db = c_DB.connect_DB()
@@ -60,7 +60,7 @@ class Dungeon:
         if len(name) <= 1:
             raise ValueError("Error: length name is a few char")
         else:
-            global db
+            db = None
             try:
                 db = c_DB.connect_DB()
                 temp_str = """SELECT name FROM Dungeon WHERE name=:name"""

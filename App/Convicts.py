@@ -15,7 +15,7 @@ class Convicts:
 
     @classmethod
     def __str__(cls):
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Convicts"""
@@ -38,7 +38,7 @@ class Convicts:
     @classmethod
     def add_convicts(cls, from_date, to_date, person_id, offense_id):
         """Add convicts to DB and check all values"""
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             c = Convicts(from_date, to_date, person_id, offense_id)
@@ -62,7 +62,7 @@ class Convicts:
     @classmethod
     def select_persons_by_offense(cls, offense_id):
         """selec all persons by offense id and print all results"""
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Person WHERE Id in 
@@ -95,7 +95,7 @@ class Convicts:
     @classmethod
     def select_persons_between_date(cls, first_date, last_date):
         """Results person if person date between the two dates"""
-        global db
+        db = None
         try:
             db = c_DB.connect_DB()
             if first_date > last_date:
@@ -173,7 +173,7 @@ class Convicts:
 
     @person_id.setter
     def person_id(self, pi):
-        global db
+        db = None
         if pi <= 0:
             raise ValueError("Error: Person ID must be greater than Zero")
         else:
@@ -200,7 +200,7 @@ class Convicts:
 
     @offense_id.setter
     def offense_id(self, oi):
-        global db
+        db = None
         if oi <= 0:
             raise ValueError("Error: Offense ID must be greater than Zero")
         else:
