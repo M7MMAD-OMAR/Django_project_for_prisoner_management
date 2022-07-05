@@ -142,7 +142,8 @@ class Person(Abstract_JSON):
             db = c_DB.connect_DB()
             temp_sql_insert = """INSERT INTO Person('first_name', 'father', 'last_name', 'gender', 'birth_year', 'address')
                           VALUES (:fn, :f, :ls, :g, :by, :a);"""
-            temp_sql_select = """SELECT  Id FROM Person ORDER BY Id DESC LIMIT 1;"""
+            #   this query get last inserted person then person add in json file
+            temp_sql_select = """SELECT Id FROM Person ORDER BY Id DESC LIMIT 1;"""
             temp_val = {"fn": p.first_name, "f": p.father, "ls": p.last_name, "g": p.gender, "by": p.birth_year,
                         "a": p.address}
             cu = db.cursor()
