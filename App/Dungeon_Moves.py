@@ -1,12 +1,15 @@
+import json
+
 import Connect_DB as c_DB
+from App.Abstract_JSON import Abstract_JSON
 
 
-class Dungeon_Moves:
+class Dungeon_Moves(Abstract_JSON):
     """
     have class Dungeon_Moves method and properties Dungeon ID, Person ID, From Date.......
     and Get, Set All Properties
     """
-
+    __json_file = "../JSON/Dungeon_Moves.json"
     def __init__(self, dungeon_id: int, person_id: int, from_date):
         self.dungeon_id = dungeon_id
         self.person_id = person_id
@@ -18,14 +21,21 @@ class Dungeon_Moves:
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Dungeon_Moves"""
+            # Result Format
+            print("#".center(8, ' '), end=' | ')
+            print("ID".center(8, ' '), end=' | ')
+            print("Dungeon ID".center(8, ' '), end=' | ')
+            print("Person ID".center(8, ' '), end=' | ')
+            print("From Date".center(14, ' '), end=' | \n')
+            print("-" * 70)
             count = 0
             for row in db.cursor().execute(temp_str).fetchall():
                 count += 1
-                print(str(count), "".center(50, '-'))
-                print(f'ID:         {row[0]}\n'
-                      f'Dungeon ID: {row[2]}\n'
-                      f'Person ID:  {row[1]}\n'
-                      f'From Date:  {row[3]}')
+                print(f' {str(count).zfill(3)} '.center(7, ' '),
+                      f' {row[0]} '.center(13, ' '),
+                      f' {row[1]} '.center(10, ' '),
+                      f' {row[2]} '.center(13, ' '),
+                      f' {row[3]} '.center(14, ' '))
         except Exception as ex:
             raise Exception(ex)
         finally:
@@ -34,14 +44,39 @@ class Dungeon_Moves:
 
     @classmethod
     def add_dungeon_moves(cls, dungeon_id: int, person_id: int, from_date):
+        """Add Dungeon Moves to DB and Dungeon_Moves.json file and check all values"""
         db = None
         try:
             dm = Dungeon_Moves(dungeon_id, person_id, from_date)
             db = c_DB.connect_DB()
-            temp_str = """INSERT INTO Dungeon_Moves('dungeon_id', 'person_id', 'from_date') VALUES(?, ?, ?)"""
+            cu = db.cursor()
+            temp_sql_insert = """INSERT INTO Dungeon_Moves('dungeon_id', 'person_id', 'from_date') VALUES(?, ?, ?)"""
+            temp_sql_select = """SELECT Id FROM Dungeon_Moves ORDER BY Id DESC LIMIT 1;"""
+
             temp_val = (dm.dungeon_id, dm.person_id, dm.from_date)
-            db.cursor().execute(temp_str, temp_val)
+            cu.execute(temp_sql_insert, temp_val)
             db.commit()
+
+            cu.execute(temp_sql_select)
+            dungeon_moves_id = cu.fetchone()
+
+            # Convert Dungeon Moves id to Integer
+            convicts_id = int(dungeon_moves_id[0])
+
+            # Open Dungeon_Moves.json file and add Dungeon Moves
+            with open(Dungeon_Moves.__json_file) as jf:
+                data = json.load(jf)
+            temp = data
+            temp.append(
+                {"Id": convicts_id, "dungeon_id": dm.dungeon_id, "person_id": dm.person_id, "from_date": str(dm.from_date)})
+
+            #   write json file and added change
+            c_DB.write_json(data, Dungeon_Moves.__json_file)
+
+            print("Added Dungeon Moves in json file and Database successfully")
+
+
+
         except c_DB.sq.ProgrammingError as ex:
             raise ex
         except Exception as ex:
@@ -56,12 +91,12 @@ class Dungeon_Moves:
         db = None
         try:
             db = c_DB.connect_DB()
-            temp_str = """SELECT * FROM Dungeon_Moves WHERE person_id=:pID"""
+            temp_str = """SELECT * FROM Dungeon_Moves WHERE person_id= :p_id ORDER BY from_date"""
             cu = db.cursor()
-            if not (cu.execute(temp_str, {"pID": person_id})):
+            if not (cu.execute(temp_str, {"p_id": person_id})):
                 raise ValueError("Warning: Person ID is not defined inside any dungeon")
             else:
-                # Format result
+                # Result Format
                 print("#".center(8, ' '), end=' | ')
                 print("ID".center(8, ' '), end=' | ')
                 print("Dungeon ID".center(8, ' '), end=' | ')
@@ -71,7 +106,7 @@ class Dungeon_Moves:
                 count = 0
                 for row in cu.fetchall():
                     count += 1
-                    print(f' {count} '.center(7, ' '),
+                    print(f' {str(count).zfill(3)} '.center(7, ' '),
                           f' {row[0]} '.center(13, ' '),
                           f' {row[1]} '.center(10, ' '),
                           f' {row[2]} '.center(13, ' '),
@@ -83,6 +118,57 @@ class Dungeon_Moves:
         finally:
             if db:
                 db.close()
+
+
+    @classmethod
+    def reset_json_by_database(cls):
+        """
+        Connect DB and select all Dungeon Moves
+        loading json file and append values to new json file
+        finally clear json file and add all values with DB
+        Warning: This method will delete all old values in json files then add Dungeon Moves with DB
+        """
+        db = None
+        try:
+            db = c_DB.connect_DB()
+            temp_str = """SELECT * FROM Dungeon_Moves"""
+            data = []
+            for row in db.cursor().execute(temp_str).fetchall():
+                data.append(
+                    {"Id": row[0], "dungeon_id": row[1], "person_id": row[2],
+                     "from_date": str(row[3])})
+
+            c_DB.write_json(data, Dungeon_Moves.__json_file)
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.commit()
+                db.close()
+
+    @classmethod
+    def print_all_data_by_json(cls):
+        """Print Dungeon Moves data in json file only"""
+        with open(Dungeon_Moves.__json_file, "r") as jf:
+            data = json.load(jf)
+            # Result Format
+            print("#".center(8, ' '), end=' | ')
+            print("ID".center(8, ' '), end=' | ')
+            print("Dungeon ID".center(8, ' '), end=' | ')
+            print("Person ID".center(8, ' '), end=' | ')
+            print("From Date".center(14, ' '), end=' | \n')
+            print("-" * 70)
+            count = 0
+            for row in data:
+                count += 1
+                print(f' {str(count).zfill(3)} '.center(7, ' '),
+                      f' {row["Id"]} '.center(13, ' '),
+                      f' {row["dungeon_id"]} '.center(10, ' '),
+                      f' {row["person_id"]} '.center(13, ' '),
+                      f' {row["from_date"]} '.center(14, ' '))
+
+
+
 
     """Start Getter and Setter Properties."""
 
@@ -102,7 +188,6 @@ class Dungeon_Moves:
                 cu = db.cursor()
                 if cu.execute(temp_str, {"id": di}).fetchone():
                     self.__dungeon_id = di
-                    print("Dungeon ID is Available")
                 else:
                     raise ValueError("Error: Dungeon ID is not defined")
             except c_DB.sq.ProgrammingError as ex:
@@ -129,7 +214,6 @@ class Dungeon_Moves:
                 cu = db.cursor()
                 if cu.execute(temp_str, {"id": pi}).fetchone():
                     self.__person_id = pi
-                    print("Person ID is Available")
                 else:
                     raise ValueError("Error: Person ID is not defined")
             except c_DB.sq.ProgrammingError as ex:
