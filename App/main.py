@@ -1,12 +1,12 @@
 from datetime import time, date
 import Connect_DB as c_DB
-import Visitings as v
+import Visits as v
 
 import Convicts as c
-import Dungeon as d, Person as p, Visitings as v, Offense as o, Dungeon_Moves as dm
+import Dungeon as d, Person as p, Visits as v, Offense as o, Dungeon_Moves as dm
 
 # import Convicts as c
-# import Dungeon as d, Person as p, Visitings as v, Offense as o, Dungeon_Moves as dm
+# import Dungeon as d, Person as p, Visits as v, Offense as o, Dungeon_Moves as dm
 if __name__ == '__main__':
     try:
         """ Person """
@@ -63,13 +63,34 @@ if __name__ == '__main__':
 
 
 
-        """ Visitings """
-        """Add Visitings in Database and json file"""
-        # v.Visitings.add_Visiting(date(1199, 1, 1), 115, "aliiiii", time(3, 40))
-        # v.Visitings.add_Visiting(date(2001, 11, 8), 116, "amera", time(5, 50))
-        # v.Visitings.add_Visiting(date(2011, 11, 8), 115, "fatema", time(6, 00))
-        # v.Visitings.add_Visiting(date(2021, 10, 1), 117, "osama", time(20, 20))
-        """Visitings(23, 24, 25, 26"""
+        """ Visits """
+        """Add Visits in Database and json file"""
+        # v.Visits.add_Visiting(date(1199, 1, 1), 115, "karam", time(3, 40))
+        # v.Visits.add_Visiting(date(2001, 11, 8), 116, "amera", time(5, 50))
+        # v.Visits.add_Visiting(date(2011, 11, 8), 115, "fatema", time(6, 00))
+        # v.Visits.add_Visiting(date(2021, 10, 1), 117, "osama", time(20, 20))
+
+        """
+        Select visitor by date and time (first data, second data, first time, second time)
+        Warning: No problem if change first data, time and second data, time
+        """
+        # v.Visits.select_visitor_by_datetime(date(2011, 11, 8), date(1199, 1, 8), time(23, 00), time(1, 00))
+
+        """
+        Select visitor by date only (first date, second date
+        Warning: No problem if change first data and second data
+        """
+        # v.Visits.select_visitor_by_datetime(date(2011, 11, 8), date(1199, 1, 8))
+        # v.Visits.select_visitor_by_datetime(date(1199, 1, 8), date(2011, 11, 8))
+
+        """Print All Visits in console with Database only"""
+        # v.Visits.__str__()
+
+        """Reset all Visits data in json file, then get data from database"""
+        v.Visits.reset_json_by_database()
+
+
+
 
         # o.Offense.add_offense("sareka")
         # o.Offense.add_offense("test")
@@ -88,9 +109,7 @@ if __name__ == '__main__':
         # dm.Dungeon_Moves.select_person_inside_dungeons(116)
 
         #
-        # v.Visitings.select_visitor_by_dateTime(date(1199, 1, 1), date(2011, 11, 8)
-        #                                             , time(3, 50), time(5, 51))
-        # v.Visitings.select_visitor_by_dateTime(date(1199, 1, 1), date(2011, 11, 8))
+
     except c_DB.sq.ProgrammingError as ex:
         print(ex)
     except TypeError as ex:

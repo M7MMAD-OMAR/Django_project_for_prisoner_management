@@ -74,7 +74,7 @@ class Person:
             temp_sql_select_inner_join_first = """SELECT  p.Id, c.Id FROM Person AS p 
                             INNER JOIN Convicts AS c ON p.id = c.person_id WHERE p.Id = :p_id LIMIT 1"""
             temp_sql_select_inner_join_second = """SELECT  p.Id, v.Id FROM Person AS p 
-                            INNER JOIN Visitings AS v ON p.id = v.person_id WHERE p.Id = :p_id LIMIT 1"""
+                            INNER JOIN Visits AS v ON p.id = v.person_id WHERE p.Id = :p_id LIMIT 1"""
             temp_sql_select_inner_join_third = """SELECT  p.Id, dm.Id FROM Person AS p 
                             INNER JOIN Dungeon_Moves AS dm ON p.id = dm.person_id WHERE p.Id = :p_id LIMIT 1 """
 
@@ -96,7 +96,7 @@ class Person:
                 cu.execute(temp_sql_select_inner_join_second, {"p_id": person_id})
                 if cu.fetchone():
                     raise ValueError(
-                        f"Error: Person ID {person_id} referencing in Visitings table, You can't delete this person")
+                        f"Error: Person ID {person_id} referencing in Visits table, You can't delete this person")
 
                 cu.execute(temp_sql_select_inner_join_third, {"p_id": person_id})
                 if cu.fetchone():

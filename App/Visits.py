@@ -1,12 +1,15 @@
+import json
+
 import Connect_DB as c_DB
 
 
-class Visitings:
+class Visits:
     """
-    have class Visitings method and properties ID, Date Visited, Person ID, Visitor Name.......
+    have class Visits method and properties ID, Date Visited, Person ID, Visitor Name.......
     and Get, Set All Properties
     """
 
+    __json_file = "../JSON/Visits.json"
     def __init__(self, date_visited: c_DB.d, person_id: int, visitor_name: str, mountIn_minutes):
         self.date_visited = date_visited
         self.person_id = person_id
@@ -18,16 +21,24 @@ class Visitings:
         db = None
         try:
             db = c_DB.connect_DB()
-            temp_str = """SELECT * FROM Visitings"""
+            temp_str = """SELECT * FROM Visits"""
+            # result Format
             count = 0
+            print("#".center(7, ' '), end=' | ')
+            print("ID".center(7, ' '), end=' | ')
+            print("Date Visited".center(14, ' '), end=' | ')
+            print("Person ID".center(5, ' '), end=' | ')
+            print("Visitor Name".center(50, ' '), end=' | ')
+            print("Mount in Minutes".center(7, ' '), end=' | \n')
+            print("-" * 130)
             for row in db.cursor().execute(temp_str).fetchall():
                 count += 1
-                print(str(count), "".center(50, '-'))
-                print(f'ID:              {row[0]}\n'
-                      f'Date Visited:    {row[1]}\n'
-                      f'Person Id:       {row[2]}\n'
-                      f'Visitor Name:    {row[3]}\n'
-                      f'Mountin Minutes: {row[4]}')
+                print(f' {count} '.center(7, ' '),
+                      f' {row[0]} '.center(12, ' '),
+                      f' {row[1]} '.center(10, ' '),
+                      f' {row[2]} '.center(16, ' '),
+                      f' {row[3]} '.center(45, ' '),
+                      f' {row[4]} '.center(20, ' '))
         except Exception as ex:
             raise Exception(ex)
         finally:
@@ -35,17 +46,41 @@ class Visitings:
                 db.close()
 
     @classmethod
-    def add_Visiting(cls, date_visited: c_DB.d, person_id: int, visitor_name: str, mountIn_minutes):
+    def add_visited(cls, date_visited: c_DB.d, person_id: int, visitor_name: str, mountIn_minutes):
         """Add visitor in DB and check values"""
         db = None
         try:
-            v = Visitings(date_visited, person_id, visitor_name, mountIn_minutes)
+            v = Visits(date_visited, person_id, visitor_name, mountIn_minutes)
             db = c_DB.connect_DB()
-            temp_str = """INSERT INTO Visitings('date_visited', 'person_id', 'visitor_name', 'mountin_minuts')
+            cu = db.cursor()
+
+            temp_str = """INSERT INTO Visits('date_visited', 'person_id', 'visitor_name', 'mount_in_minutes')
                       VALUES (?, ?, ?, ?)"""
-            temp_val = (v.date_visited, v.person_id, v.visitor_name, v.mountIn_minutes.strftime("%H:%M"))
-            db.cursor().execute(temp_str, temp_val)
+            temp_sql_select = """SELECT Id FROM Visits ORDER BY Id DESC LIMIT 1;"""
+
+            temp_val = (v.date_visited, v.person_id, v.visitor_name, v.mountIn_minutes)
+            cu.execute(temp_str, temp_val)
             db.commit()
+
+            cu.execute(temp_sql_select)
+            visit_id = cu.fetchone()
+
+            # Convert Visits id to Integer
+            visit_id = int(visit_id[0])
+
+            # Open Convicts.json file and add convicts
+            with open(Visits.__json_file) as jf:
+                data = json.load(jf)
+            temp = data
+            temp.append(
+                {"Id": visit_id, "date_visited": str(v.date_visited), "person_id": v.person_id, "visitor_name": v.visitor_name,
+                 "mount_in_minutes": str(v.mountIn_minutes)})
+
+            #   write json file and added change
+            c_DB.write_json(data, Visits.__json_file)
+
+            print("Added Visits in json file and Database successfully")
+
         except Exception as ex:
             raise Exception(ex)
         finally:
@@ -53,19 +88,25 @@ class Visitings:
                 db.close()
 
     @classmethod
-    def select_visitor_by_dateTime(cls, first_date, last_date, first_time=c_DB.t(00, 00), last_time=c_DB.t(23, 59)):
+    def select_visitor_by_datetime(cls, first_date, last_date, first_time=c_DB.t(00, 00), last_time=c_DB.t(23, 59)):
         """Results all values if date and time inside range"""
         db = None
         try:
             db = c_DB.connect_DB()
             if first_date > last_date:
+                #   convert first_date and last_date
                 first_date, last_date = last_date, first_date
-            temp_str = """SELECT * FROM Visitings WHERE (date_visited BETWEEN :fd AND :ld)
-                                                    AND (mountin_minuts BETWEEN :ft AND :lt)"""
+
+            if first_time > last_time:
+                #   convert first_time and last_time
+                first_time, last_time = last_time, first_time
+
+            temp_str = """SELECT * FROM Visits WHERE (date_visited BETWEEN :fd AND :ld)
+                                                    AND (mount in minutes BETWEEN :ft AND :lt) ORDER BY date_visited"""
             temp_val = (
                 {"fd": first_date, "ld": last_date, "ft": first_time.strftime("%H:%M"),
                  "lt": last_time.strftime("%H:%M")})
-            # Format result
+            # result Format
             count = 0
             print("#".center(7, ' '), end=' | ')
             print("ID".center(7, ' '), end=' | ')
@@ -80,12 +121,37 @@ class Visitings:
                       f' {row[0]} '.center(12, ' '),
                       f' {row[1]} '.center(10, ' '),
                       f' {row[2]} '.center(16, ' '),
-                      f' {row[3]} '.center(50, ' '),
+                      f' {row[3]} '.center(45, ' '),
                       f' {row[4]} '.center(20, ' '))
         except Exception as ex:
             raise Exception(ex)
         finally:
             if db:
+                db.close()
+
+    @classmethod
+    def reset_json_by_database(cls):
+        """
+        Connect DB and select all Visits
+        loading json file and append values to new json file
+        finally clear json file and add all values with DB
+        Warning: This method will delete all old values in json files then add Visits with DB
+        """
+        db = None
+        try:
+            db = c_DB.connect_DB()
+            temp_str = """SELECT * FROM Visits"""
+            data = []
+            for row in db.cursor().execute(temp_str).fetchall():
+                data.append(
+                    {"Id": row[0], "date_visited": str(row[1]), "person_id": row[2],
+                     "visitor_name": row[3], "mount_in_minutes": str(row[4])})
+            c_DB.write_json(data, Visits.__json_file)
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.commit()
                 db.close()
 
     """Start Getter and Setter Properties."""
@@ -126,7 +192,6 @@ class Visitings:
                 cu = db.cursor()
                 if cu.execute(temp_str, {"id": pi}).fetchone():
                     self.__person_id = pi
-                    print("Person ID is Available")
                 else:
                     raise ValueError("Error: Person ID is not defined")
             except c_DB.sq.ProgrammingError as ex:
@@ -150,7 +215,7 @@ class Visitings:
 
     @property
     def mountIn_minutes(self):
-        return self.__mountIn_minutes
+        return self.__mountIn_minutes.strftime("%H:%M")
 
     @mountIn_minutes.setter
     def mountIn_minutes(self, mm):
