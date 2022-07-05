@@ -88,6 +88,7 @@ class Offense(Abstract_JSON):
         db = None
         try:
             db = c_DB.connect_DB()
+            cu = db.cursor()
 
             temp_sql_select = """SELECT Id from Offense WHERE Id = :id;"""
             temp_sql_delete = """DELETE FROM Offense WHERE Id = :id;"""
@@ -99,7 +100,6 @@ class Offense(Abstract_JSON):
                             INNER JOIN Convicts AS c ON o.id = c.offense_id WHERE o.Id = :o_id LIMIT 1"""
 
 
-            cu = db.cursor()
 
             for offense_id in offense_ids:
 
@@ -155,9 +155,9 @@ class Offense(Abstract_JSON):
         db = None
         try:
             db = c_DB.connect_DB()
-            temp_str = """SELECT * FROM Offense"""
+            temp_sql_select = """SELECT * FROM Offense"""
             data = []
-            for row in db.cursor().execute(temp_str).fetchall():
+            for row in db.cursor().execute(temp_sql_select).fetchall():
                 data.append({"Id": row[0], "name": row[1]})
             c_DB.write_json(data, Offense.__json_file)
         except Exception as ex:
@@ -201,8 +201,8 @@ class Offense(Abstract_JSON):
             db = None
             try:
                 db = c_DB.connect_DB()
-                temp_str = """SELECT name FROM Offense WHERE name=:n"""
-                if db.cursor().execute(temp_str, {"n": n}).fetchone():
+                temp_sql_select = """SELECT name FROM Offense WHERE name=:n"""
+                if db.cursor().execute(temp_sql_select, {"n": n}).fetchone():
                     raise ValueError("Error: Offense Name is already defined")
                 else:
                     self.__name = n

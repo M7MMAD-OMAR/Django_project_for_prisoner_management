@@ -320,7 +320,6 @@ class Convicts(Abstract_JSON):
     def to_date(self, td):
         try:
             temp_date = c_DB.d(td.year, td.month, td.day)
-            date_now = c_DB.d.today()
             if temp_date < c_DB.d(1000, 1, 1):
                 raise ValueError("Error: To Date must be greater than 1000:01:01")
             else:
@@ -342,9 +341,9 @@ class Convicts(Abstract_JSON):
         else:
             try:
                 db = c_DB.connect_DB()
-                temp_str = """SELECT Id FROM Person WHERE Id=:id"""
+                temp_sql_select = """SELECT Id FROM Person WHERE Id=:id"""
                 cu = db.cursor()
-                if cu.execute(temp_str, {"id": pi}).fetchone():
+                if cu.execute(temp_sql_select, {"id": pi}).fetchone():
                     self.__person_id = pi
                 else:
                     raise ValueError("Error: Person ID is not defined")
@@ -368,9 +367,9 @@ class Convicts(Abstract_JSON):
         else:
             try:
                 db = c_DB.connect_DB()
-                temp_str = """SELECT Id FROM Offense WHERE Id=:id"""
+                temp_sql_select = """SELECT Id FROM Offense WHERE Id=:id"""
                 cu = db.cursor()
-                if cu.execute(temp_str, {"id": oi}).fetchone():
+                if cu.execute(temp_sql_select, {"id": oi}).fetchone():
                     self.__offense_id = oi
                 else:
                     raise ValueError("Error: Offense ID is not defined")

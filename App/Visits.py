@@ -16,7 +16,7 @@ class Visits(Abstract_JSON):
         self.date_visited = date_visited
         self.person_id = person_id
         self.visitor_name = visitor_name.strip()
-        self.mountIn_minutes = mountIn_minutes
+        self.mount_in_minutes = mountIn_minutes
 
     @classmethod
     def __str__(cls):
@@ -60,7 +60,7 @@ class Visits(Abstract_JSON):
                       VALUES (?, ?, ?, ?)"""
             temp_sql_select = """SELECT Id FROM Visits ORDER BY Id DESC LIMIT 1;"""
 
-            temp_val = (v.date_visited, v.person_id, v.visitor_name, v.mountIn_minutes)
+            temp_val = (v.date_visited, v.person_id, v.visitor_name, v.mount_in_minutes)
             cu.execute(temp_str, temp_val)
             db.commit()
 
@@ -77,7 +77,7 @@ class Visits(Abstract_JSON):
             temp.append(
                 {"Id": visit_id, "date_visited": str(v.date_visited), "person_id": v.person_id,
                  "visitor_name": v.visitor_name,
-                 "mount_in_minutes": str(v.mountIn_minutes)})
+                 "mount_in_minutes": str(v.mount_in_minutes)})
 
             #   write json file and added change
             c_DB.write_json(data, Visits.__json_file)
@@ -144,8 +144,6 @@ class Visits(Abstract_JSON):
             if db:
                 db.close()
 
-
-
     @classmethod
     def select_visitor_by_datetime(cls, first_date, last_date, first_time=c_DB.t(00, 00), last_time=c_DB.t(23, 59)):
         """Results all values if date and time inside range"""
@@ -161,7 +159,7 @@ class Visits(Abstract_JSON):
                 first_time, last_time = last_time, first_time
 
             temp_str = """SELECT * FROM Visits WHERE (date_visited BETWEEN :fd AND :ld)
-                                                    AND (mount in minutes BETWEEN :ft AND :lt) ORDER BY date_visited"""
+                                                    AND (mount_in_minutes BETWEEN :ft AND :lt) ORDER BY date_visited"""
             temp_val = (
                 {"fd": first_date, "ld": last_date, "ft": first_time.strftime("%H:%M"),
                  "lt": last_time.strftime("%H:%M")})
@@ -199,9 +197,9 @@ class Visits(Abstract_JSON):
         db = None
         try:
             db = c_DB.connect_DB()
-            temp_str = """SELECT * FROM Visits"""
+            temp_sql_select = """SELECT * FROM Visits"""
             data = []
-            for row in db.cursor().execute(temp_str).fetchall():
+            for row in db.cursor().execute(temp_sql_select).fetchall():
                 data.append(
                     {"Id": row[0], "date_visited": str(row[1]), "person_id": row[2],
                      "visitor_name": row[3], "mount_in_minutes": str(row[4])})
@@ -271,9 +269,9 @@ class Visits(Abstract_JSON):
             db = None
             try:
                 db = c_DB.connect_DB()
-                temp_str = """SELECT Id FROM Person WHERE Id=:id"""
+                temp_sql_select = """SELECT Id FROM Person WHERE Id=:id"""
                 cu = db.cursor()
-                if cu.execute(temp_str, {"id": pi}).fetchone():
+                if cu.execute(temp_sql_select, {"id": pi}).fetchone():
                     self.__person_id = pi
                 else:
                     raise ValueError("Error: Person ID is not defined")
@@ -297,13 +295,13 @@ class Visits(Abstract_JSON):
             self.__visitor_name = vn
 
     @property
-    def mountIn_minutes(self):
-        return self.__mountIn_minutes.strftime("%H:%M")
+    def mount_in_minutes(self):
+        return self.__mount_in_minutes.strftime("%H:%M")
 
-    @mountIn_minutes.setter
-    def mountIn_minutes(self, mm):
+    @mount_in_minutes.setter
+    def mount_in_minutes(self, mm):
         try:
-            self.__mountIn_minutes = mm
+            self.__mount_in_minutes = mm
         except Exception as ex:
             raise Exception(ex.__class__)
 

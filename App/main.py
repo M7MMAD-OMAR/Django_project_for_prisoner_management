@@ -9,6 +9,8 @@ import Dungeon as d, Person as p, Visits as v, Offense as o, Dungeon_Moves as dm
 # import Dungeon as d, Person as p, Visits as v, Offense as o, Dungeon_Moves as dm
 if __name__ == '__main__':
     try:
+        pp = p.Person("", "", "", "", date(2000, 8, 11), 'Aziz')
+
         """ Person Start """
         """Add person in Database and json file"""
         # p.Person.add_person(' maroa  ', ' ali  ', ' saleem  ', "  female   ", date(2000, 8, 11), 'Aziz')
@@ -17,6 +19,7 @@ if __name__ == '__main__':
 
         """
         Delete person or persons in Database and json file
+        You can delete more than person or delete one person 
         Warning: if person id referencing other tables, you can't delete person 
         """
         # p.Person.delete_persons_by_id(114, 116, 152)
@@ -42,7 +45,10 @@ if __name__ == '__main__':
         # c.Convicts.add_convicts(date(2005, 6, 8), date(2020, 1, 1), 116, 5)
         # c.Convicts.add_convicts(date(2019, 7, 5), date(2070, 1, 1), 117, 4)
 
-        """Delete Convicts in Database and json file"""
+        """
+        Delete Convicts in Database and json file
+        You can delete more than Convicts or delete one Convicts 
+        """
         # c.Convicts.delete_convicts_by_id(39)
 
         """Print All convicts in console with Database only"""
@@ -73,7 +79,10 @@ if __name__ == '__main__':
         # v.Visits.add_Visiting(date(2011, 11, 8), 115, "fatema", time(6, 00))
         # v.Visits.add_Visiting(date(2021, 10, 1), 117, "osama", time(20, 20))
 
-        """Delete Visits in Database and json file"""
+        """
+        Delete Visits in Database and json file
+        You can delete more than Visits or delete one Visits
+        """
         # v.Visits.delete_visitor_by_id(33)
 
         """
@@ -112,7 +121,10 @@ if __name__ == '__main__':
         # dm.Dungeon_Moves.add_dungeon_moves(10, 115, date(2006, 10, 10))
 
 
-        """Delete Dungeon Moves in Database and json file"""
+        """
+        Delete Dungeon Moves in Database and json file
+        You can delete more than Dungeon or delete one Dungeon
+        """
         # dm.Dungeon_Moves.delete_dungeon_moves_by_id(8, 9)
 
 
@@ -129,19 +141,19 @@ if __name__ == '__main__':
         """Print all Dungeon Moves data in console by json file only"""
         # dm.Dungeon_Moves.print_all_data_by_json()
 
-
-
         """ Dungeon Moves End """
 
 
 
         """ Offense Start """
+
         """Add Offense in Database and json file"""
         # o.Offense.add_offense("first")
         # o.Offense.add_offense("second")
 
         """
         Delete Offense in Database and json file
+        You can delete more than Offense or delete one Offense
         Warning: if Offense id referencing other tables, you can't delete Offense 
         """
         # o.Offense.delete_offense_by_id(6)
@@ -160,25 +172,26 @@ if __name__ == '__main__':
 
 
         """ Dungeon Start """
-        # d.Dungeon.add_dungeon("first   ", 0)
+        """Add Dungeon in Database and json file"""
+        # d.Dungeon.add_dungeon("   weee   ", 123)
         # d.Dungeon.add_dungeon("    second    ", 5)
         # d.Dungeon.add_dungeon("  third    ", 10000)
 
         """
         Delete Dungeon in Database and json file
+        You can delete more than Dungeon or delete one Dungeon
         Warning: if Dungeon id referencing other tables, you can't delete Dungeon 
         """
-
+        # d.Dungeon.delete_dungeon_by_id()
 
         """Print All Dungeon in console with Database only"""
-
+        # d.Dungeon.__str__()
 
         """Reset all Dungeon data in json file, then get data from database"""
-
+        # d.Dungeon.reset_json_by_database()
 
         """Print all Dungeon data in console by json file only"""
-
-
+        # d.Dungeon.print_all_data_by_json()
         """ Dungeon End """
 
 
