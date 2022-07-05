@@ -59,22 +59,51 @@ class Person:
         """
         delete person from database by id
         and delete person in Person.json file by id
+        Warning: if person id referencing other tables, you can't delete person
         """
         db = None
         try:
             db = c_DB.connect_DB()
+
             temp_sql_select = """SELECT Id from Person WHERE Id = :id;"""
             temp_sql_delete = """DELETE FROM Person WHERE Id = :id;"""
 
+            #   This Queries because check
+            #   if There is data show warning in order to delete persons
+            #   else delete persons only
+            temp_sql_select_inner_join_first = """SELECT  p.Id, c.Id FROM Person AS p 
+                            INNER JOIN Convicts AS c ON p.id = c.person_id WHERE p.Id = :p_id LIMIT 1"""
+            temp_sql_select_inner_join_second = """SELECT  p.Id, v.Id FROM Person AS p 
+                            INNER JOIN Visitings AS v ON p.id = v.person_id WHERE p.Id = :p_id LIMIT 1"""
+            temp_sql_select_inner_join_third = """SELECT  p.Id, dm.Id FROM Person AS p 
+                            INNER JOIN Dungeon_Moves AS dm ON p.id = dm.person_id WHERE p.Id = :p_id LIMIT 1 """
+
+            cu = db.cursor()
+
             for person_id in persons_ids:
-                # select person by id in order to check find person id
-                cu = db.cursor()
+
+                #   select person by id in order to check find person id
                 cu.execute(temp_sql_select, {"id": person_id})
                 if not cu.fetchone():
                     raise ValueError(f"Error: Person ID {person_id} is not found in your data, please try again!")
 
+                # Check person if referencing other tables raise error else cancel this and delete value
+                cu.execute(temp_sql_select_inner_join_first, {"p_id": person_id})
+                if cu.fetchone():
+                    raise ValueError(
+                        f"Error: Person  {person_id} referencing in Convicts table, You can't delete this person")
+
+                cu.execute(temp_sql_select_inner_join_second, {"p_id": person_id})
+                if cu.fetchone():
+                    raise ValueError(
+                        f"Error: Person ID {person_id} referencing in Visitings table, You can't delete this person")
+
+                cu.execute(temp_sql_select_inner_join_third, {"p_id": person_id})
+                if cu.fetchone():
+                    raise ValueError(
+                        f"Error: Person ID {person_id} referencing in Dungeon Moves table , You can't delete this person")
+
                 # it's True! delete the person by id
-                cu = db.cursor()
                 cu.execute(temp_sql_delete, {"id": person_id})
                 db.commit()
 
@@ -92,6 +121,7 @@ class Person:
                     else:
                         new_person_data.append(row)
                 c_DB.write_json(new_person_data, Person.__json_file)
+
             print("Delete Person's in json file and Database successfully")
 
         except ValueError as ex:
@@ -140,7 +170,6 @@ class Person:
         finally:
             if db:
                 db.close()
-
 
     @classmethod
     def reset_json_by_database(cls):

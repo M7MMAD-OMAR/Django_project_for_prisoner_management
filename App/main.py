@@ -20,8 +20,11 @@ if __name__ == '__main__':
         """Print All person in console with Database only"""
         # p.Person.__str__()
 
-        """Delete person or persons in Database and json file"""
-        # p.Person.delete_persons_by_id(142, 141, 140)
+        """
+        Delete person or persons in Database and json file
+        Warning: if person id referencing other tables, you can't delete person 
+        """
+        p.Person.delete_persons_by_id(114, 116, 152)
 
         """Reset all Person data in json file, then get data from database"""
         # p.Person.reset_json_by_database()
