@@ -11,6 +11,7 @@ class Visits(Abstract_JSON):
     """
 
     __json_file = "../JSON/Visits.json"
+
     def __init__(self, date_visited: c_DB.d, person_id: int, visitor_name: str, mountIn_minutes):
         self.date_visited = date_visited
         self.person_id = person_id
@@ -39,7 +40,7 @@ class Visits(Abstract_JSON):
                       f' {row[1]} '.center(10, ' '),
                       f' {row[2]} '.center(16, ' '),
                       f' {row[3]} '.center(45, ' '),
-                      f' {row[4]} '.center(20, ' '))
+                      f' {row[4]} '.center(25, ' '))
         except Exception as ex:
             raise Exception(ex)
         finally:
@@ -74,7 +75,8 @@ class Visits(Abstract_JSON):
                 data = json.load(jf)
             temp = data
             temp.append(
-                {"Id": visit_id, "date_visited": str(v.date_visited), "person_id": v.person_id, "visitor_name": v.visitor_name,
+                {"Id": visit_id, "date_visited": str(v.date_visited), "person_id": v.person_id,
+                 "visitor_name": v.visitor_name,
                  "mount_in_minutes": str(v.mountIn_minutes)})
 
             #   write json file and added change
@@ -87,6 +89,62 @@ class Visits(Abstract_JSON):
         finally:
             if db:
                 db.close()
+
+    @classmethod
+    def delete_visitor_by_id(cls, *visits_ids):
+        """
+        delete Visits from database by id
+        and delete Visits in Visits.json file by id
+        """
+
+        db = None
+        try:
+            db = c_DB.connect_DB()
+            cu = db.cursor()
+
+            temp_sql_select = """SELECT Id from Visits WHERE Id = :id;"""
+            temp_sql_delete = """DELETE FROM Visits WHERE Id = :id;"""
+
+            for visit_id in visits_ids:
+
+                #   select Visits by id in order to check  Visits id
+                cu.execute(temp_sql_select, {"id": visit_id})
+                if not cu.fetchone():
+                    raise ValueError(f"Error: Visits ID {visit_id} is not found in your data, please try again!")
+
+                # delete the Visits by id
+                cu.execute(temp_sql_delete, {"id": visit_id})
+                db.commit()
+
+                # Delete Visits in Visits.json file, by Visits ID
+                new_visits_data = []
+                with open(Visits.__json_file, "r") as jf:
+                    data = json.load(jf)
+
+                # if id in json file keep change
+                # else append Visits json in new_visits_data
+                # finally update Visits.json file by new_visits_data
+                for row in data:
+                    if row["Id"] == visit_id:
+                        pass
+                    else:
+                        new_visits_data.append(row)
+                c_DB.write_json(new_visits_data, Visits.__json_file)
+
+            print("Delete Visit's in json file and Database successfully")
+
+
+
+
+        except ValueError as ex:
+            raise ex
+        except Exception as ex:
+            raise ex
+        finally:
+            if db:
+                db.close()
+
+
 
     @classmethod
     def select_visitor_by_datetime(cls, first_date, last_date, first_time=c_DB.t(00, 00), last_time=c_DB.t(23, 59)):
@@ -154,6 +212,30 @@ class Visits(Abstract_JSON):
             if db:
                 db.commit()
                 db.close()
+
+    @classmethod
+    def print_all_data_by_json(cls):
+        """Print Visits data in console by json file only"""
+        with open(Visits.__json_file, "r") as jf:
+            data = json.load(jf)
+
+        # result Format
+        count = 0
+        print("#".center(7, ' '), end=' | ')
+        print("ID".center(7, ' '), end=' | ')
+        print("Date Visited".center(14, ' '), end=' | ')
+        print("Person ID".center(5, ' '), end=' | ')
+        print("Visitor Name".center(50, ' '), end=' | ')
+        print("Mount in Minutes".center(7, ' '), end=' | \n')
+        print("-" * 130)
+        for row in data:
+            count += 1
+            print(f' {count} '.center(7, ' '),
+                  f' {row["Id"]} '.center(12, ' '),
+                  f' {row["date_visited"]} '.center(10, ' '),
+                  f' {row["person_id"]} '.center(16, ' '),
+                  f' {row["visitor_name"]} '.center(45, ' '),
+                  f' {row["mount_in_minutes"]} '.center(25, ' '))
 
     """Start Getter and Setter Properties."""
 

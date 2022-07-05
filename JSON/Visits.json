@@ -35,20 +35,6 @@
         "mount_in_minutes": "05:50"
     },
     {
-        "Id": 28,
-        "date_visited": "2001-11-08",
-        "person_id": 116,
-        "visitor_name": "amera",
-        "mount_in_minutes": "05:50"
-    },
-    {
-        "Id": 29,
-        "date_visited": "2001-11-08",
-        "person_id": 116,
-        "visitor_name": "amera",
-        "mount_in_minutes": "05:50"
-    },
-    {
         "Id": 30,
         "date_visited": "2001-11-08",
         "person_id": 116,

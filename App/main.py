@@ -51,7 +51,7 @@ if __name__ == '__main__':
         """Delete Convicts in Database and json file"""
         # c.Convicts.delete_convicts_by_id(39)
 
-        """Print all Convicts data in console by json file"""
+        """Print all Convicts data in console by json file only"""
         # c.Convicts.print_all_data_by_json()
 
         """Reset all Convicts data in json file, then get data from database"""
@@ -88,6 +88,15 @@ if __name__ == '__main__':
 
         """Reset all Visits data in json file, then get data from database"""
         # v.Visits.reset_json_by_database()
+
+
+        """Print all Visits data in console by json file only"""
+        # v.Visits.print_all_data_by_json()
+
+
+        """Delete Visits in Database and json file"""
+        # v.Visits.delete_visitor_by_id(33)
+
 
 
 
