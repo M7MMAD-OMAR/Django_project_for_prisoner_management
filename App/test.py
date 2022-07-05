@@ -1,6 +1,6 @@
 import json
 
-json_file = "../JSON/person.json"
+json_file = "../JSON/Person.json"
 
 
 def write_json(date, json_file=json_file):

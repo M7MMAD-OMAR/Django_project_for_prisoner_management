@@ -8,7 +8,7 @@ class Person:
     have class Person method and properties First Name, Father, Last Name.......
     and Get, Set All Properties
     """
-    __json_file = "../JSON/person.json"
+    __json_file = "../JSON/Person.json"
 
     def __init__(self, fn: str, father: str, ls: str, gender: str, by, address: str):
         self.first_name = fn.strip()
@@ -24,9 +24,9 @@ class Person:
         db = None
         try:
             db = c_DB.connect_DB()
-            temp_str = """SELECT * FROM Person"""
+            temp_sql_select = """SELECT * FROM Person"""
 
-            # Format result
+            # result Format
             count = 0
             print("#".center(8, ' '), end=' | ')
             print("ID".center(8, ' '), end=' | ')
@@ -37,7 +37,7 @@ class Person:
             print("Birth Year".center(20, ' '), end=' | ')
             print("Address".center(25, ' '), end=' | \n')
             print("-" * 150)
-            for row in db.cursor().execute(temp_str).fetchall():
+            for row in db.cursor().execute(temp_sql_select).fetchall():
                 count += 1
                 print(f' {str(count).zfill(3)} '.center(7, ' '),
                       f' {row[0]} '.center(14, ' '),
@@ -58,7 +58,7 @@ class Person:
     def delete_persons_by_id(cls, *persons_ids):
         """
         delete person from database by id
-        and delete person in person.json file by id
+        and delete person in Person.json file by id
         """
         db = None
         try:
@@ -78,20 +78,20 @@ class Person:
                 cu.execute(temp_sql_delete, {"id": person_id})
                 db.commit()
 
-                # Delete person in person.json file, by person ID
+                # Delete person in Person.json file, by person ID
                 new_person_data = []
                 with open(Person.__json_file, "r") as jf:
                     data = json.load(jf)
 
                 # if id in json file keep change
                 # else append person json in new_person_data
-                # finally update person.json file by new_person_data
+                # finally update Person.json file by new_person_data
                 for row in data:
                     if row["Id"] == person_id:
                         pass
                     else:
                         new_person_data.append(row)
-                Person.__write_json(new_person_data)
+                c_DB.write_json(new_person_data, Person.__json_file)
             print("Delete Person's in json file and Database successfully")
 
         except ValueError as ex:
@@ -104,7 +104,7 @@ class Person:
 
     @classmethod
     def add_person(cls, fn: str, father: str, ls: str, gender: str, by, address: str):
-        """Add person to DataBase and person.json file and check all Values"""
+        """Add person to DataBase and Person.json file and check all Values"""
         db = None
         try:
             p = Person(fn, father, ls, gender, by, address)
@@ -118,21 +118,21 @@ class Person:
             cu.execute(temp_sql_insert, temp_val)
             db.commit()
 
-            # Add person in person.json file by id person inserted.
+            # Add person in Person.json file by id person inserted.
             cu.execute(temp_sql_select)
 
-            id = cu.fetchone()
+            person_id = cu.fetchone()
 
             # Convert person id to Integer
-            id = int(id[0])
+            person_id = int(person_id[0])
 
-            # Open person.json file and add person
+            # Open Person.json file and add person
             with open(Person.__json_file) as jf:
-                date = json.load(jf)
-            temp = date["persons"]
-            temp.append({"Id": id, "first_name": p.first_name, "father": p.father, "last_name": p.last_name,
+                data = json.load(jf)
+            temp = data
+            temp.append({"Id": person_id, "first_name": p.first_name, "father": p.father, "last_name": p.last_name,
                          "gender": p.gender, "birth_year": str(p.birth_year), "address": p.address})
-            Person.__write_json(date)
+            c_DB.write_json(temp, Person.__json_file)
             print("Added Person in json file and Database successfully")
 
         except Exception as ex:
@@ -141,12 +141,6 @@ class Person:
             if db:
                 db.close()
 
-    # some json method
-    @classmethod
-    def __write_json(cls, date):
-        """Add or write or delete data in person.json file"""
-        with open(Person.__json_file, "w") as jf:
-            json.dump(date, jf, indent=4)
 
     @classmethod
     def reset_json_by_database(cls):
@@ -160,11 +154,11 @@ class Person:
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Person"""
-            date = []
+            data = []
             for row in db.cursor().execute(temp_str).fetchall():
-                date.append({"Id": row[0], "first_name": row[1], "father": row[2], "last_name": row[3],
+                data.append({"Id": row[0], "first_name": row[1], "father": row[2], "last_name": row[3],
                              "gender": row[4], "birth_year": str(row[5]), "address": row[6]})
-            Person.__write_json(date)
+            c_DB.write_json(data, Person.__json_file)
         except Exception as ex:
             raise Exception(ex)
         finally:
@@ -172,9 +166,9 @@ class Person:
                 db.commit()
                 db.close()
 
-
     @classmethod
     def print_all_data_by_json(cls):
+        """Print Person data in json file only"""
         with open(Person.__json_file, "r") as jf:
             data = json.load(jf)
         # Format result
