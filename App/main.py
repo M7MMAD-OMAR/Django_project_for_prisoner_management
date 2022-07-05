@@ -98,24 +98,47 @@ if __name__ == '__main__':
         # v.Visits.delete_visitor_by_id(33)
 
 
+        """ Dungeon Moves """
+        """Add Dungeon Moves in Database and json file"""
+        # dm.Dungeon_Moves.add_dungeon_moves(12, 155, date(1950, 5, 8))
+        # dm.Dungeon_Moves.add_dungeon_moves(10, 116, date(2002, 10, 10))
+        # dm.Dungeon_Moves.add_dungeon_moves(10, 116, date(2011, 10, 10))
+        # dm.Dungeon_Moves.add_dungeon_moves(10, 115, date(2006, 10, 10))
 
 
 
-        # o.Offense.add_offense("sareka")
-        # o.Offense.add_offense("test")
-        """Offense(4, 5)"""
+        """Print All Dungeon Moves in console with Database only"""
+        # dm.Dungeon_Moves.__str__()
+
+        """Result persons inside dungeons and print's"""
+        # dm.Dungeon_Moves.select_person_inside_dungeons(115)
+
+        """Reset all Dungeon Moves data in json file, then get data from database"""
+        # dm.Dungeon_Moves.reset_json_by_database()
+
+
+        """Print all Dungeon Moves data in console by json file only"""
+        dm.Dungeon_Moves.print_all_data_by_json()
+
+
+        """ Offense """
+        """Add Offense in Database and json file"""
+        # o.Offense.add_offense("first")
+        # o.Offense.add_offense("second")
+
+
+        """Print All Offense in console with Database only"""
+        # o.Offense.__str__()
+
+
+
 
         # d.Dungeon.add_dungeon("zenzana 1   ", 10)
         # d.Dungeon.add_dungeon("zenzana 2   ", 1)
         # d.Dungeon.add_dungeon("zenzana 3   ", 5)
         """Dungeon(10, 11, 12)"""
 
-        # dm.Dungeon_Moves.add_dungeon_moves(10, 115, date(2000, 10, 10))
-        # dm.Dungeon_Moves.add_dungeon_moves(10, 116, date(2002, 10, 10))
-        # dm.Dungeon_Moves.add_dungeon_moves(10, 116, date(2011, 10, 10))
-        # dm.Dungeon_Moves.add_dungeon_moves(10, 115, date(2006, 10, 10))
-        """Dungeon_Moves(6, 7, 8, 9, 10)"""
-        # dm.Dungeon_Moves.select_person_inside_dungeons(116)
+
 
         #
 
