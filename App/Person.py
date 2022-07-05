@@ -9,6 +9,7 @@ class Person:
     and Get, Set All Properties
     """
     __json_file = "../JSON/person.json"
+
     def __init__(self, fn: str, father: str, ls: str, gender: str, by, address: str):
         self.first_name = fn.strip()
         self.father = father.strip()
@@ -24,17 +25,28 @@ class Person:
         try:
             db = c_DB.connect_DB()
             temp_str = """SELECT * FROM Person"""
+
+            # Format result
             count = 0
+            print("#".center(8, ' '), end=' | ')
+            print("ID".center(8, ' '), end=' | ')
+            print("First Name".center(15, ' '), end=' | ')
+            print("Father".center(16, ' '), end=' | ')
+            print("Last Name".center(20, ' '), end=' | ')
+            print("Gender".center(15, ' '), end=' | ')
+            print("Birth Year".center(20, ' '), end=' | ')
+            print("Address".center(25, ' '), end=' | \n')
+            print("-" * 150)
             for row in db.cursor().execute(temp_str).fetchall():
                 count += 1
-                print(str(count), "".center(50, '-'))
-                print(f'ID:         {row[0]}\n'
-                      f'First Name: {row[1]}\n'
-                      f'Father:     {row[2]}\n'
-                      f'Last Name:  {row[3]}\n'
-                      f'Gender:     {row[4]}\n'
-                      f'Birth Year: {row[5]}\n'
-                      f'Address:    {row[6]}\n')
+                print(f' {str(count).zfill(3)} '.center(7, ' '),
+                      f' {row[0]} '.center(14, ' '),
+                      f' {row[1]} '.center(12, ' '),
+                      f' {row[2]} '.center(23, ' '),
+                      f' {row[3]} '.center(20, ' '),
+                      f' {row[4]} '.center(20, ' '),
+                      f' {row[5]} '.center(20, ' '),
+                      f' {row[6]} '.center(28, ' '))
         except Exception as ex:
             raise Exception(ex)
         finally:
@@ -72,9 +84,8 @@ class Person:
                 db.commit()
                 db.close()
 
-
     @classmethod
-    def delete_person_by_id(cls, person_id):
+    def delete_persons_by_id(cls, *persons_ids):
         """
         delete person from database by id
         and delete person in person.json file by id
@@ -85,32 +96,33 @@ class Person:
             temp_sql_select = """SELECT Id from Person WHERE Id = :id;"""
             temp_sql_delete = """DELETE FROM Person WHERE Id = :id;"""
 
-            # select person by id in order to check find person id
-            cu = db.cursor()
-            cu.execute(temp_sql_select, {"id": person_id})
-            if not cu.fetchone():
-                raise ValueError("Error: Person ID is not found in your data, please try again!")
+            for person_id in persons_ids:
+                # select person by id in order to check find person id
+                cu = db.cursor()
+                cu.execute(temp_sql_select, {"id": person_id})
+                if not cu.fetchone():
+                    raise ValueError(f"Error: Person ID {person_id} is not found in your data, please try again!")
 
-            # it's True! delete the person by id
-            cu = db.cursor()
-            cu.execute(temp_sql_delete, {"id": person_id})
-            db.commit()
+                # it's True! delete the person by id
+                cu = db.cursor()
+                cu.execute(temp_sql_delete, {"id": person_id})
+                db.commit()
 
-            # Delete person in person.json file, by person ID
-            new_person_data = []
-            with open(Person.__json_file, "r") as jf:
-                data = json.load(jf)
+                # Delete person in person.json file, by person ID
+                new_person_data = []
+                with open(Person.__json_file, "r") as jf:
+                    data = json.load(jf)
 
-            # if id in json file keep change
-            # else append person json in new_person_data
-            # finally update person.json file by new_person_data
-            for row in data:
-                if row["Id"] == person_id:
-                    pass
-                else:
-                    new_person_data.append(row)
-            Person.__write_json(new_person_data)
-            print("Delete Person in json file and Database successfully")
+                # if id in json file keep change
+                # else append person json in new_person_data
+                # finally update person.json file by new_person_data
+                for row in data:
+                    if row["Id"] == person_id:
+                        pass
+                    else:
+                        new_person_data.append(row)
+                Person.__write_json(new_person_data)
+            print("Delete Person's in json file and Database successfully")
 
         except ValueError as ex:
             raise ex

@@ -14,8 +14,8 @@ if __name__ == '__main__':
         # p.Person.add_person(' yasmeen  ', ' ali  ', ' saleem  ', "  female   ", date(2000, 8, 11), 'Aziz')
         # p.Person.add_person('mona  ', ' omar', 'khaled  ', "female", date(2001, 11, 8), 'Turkey, Istanbul')
         # p.Person.add_person('   amane   ', '  muhammad  ', ' hamdo ', "     female", date(1199, 1, 1), 'istanbul')
-        # p.Person.__str__()
-        # p.Person.delete_person_by_id(143)
+        p.Person.__str__()
+        # p.Person.delete_persons_by_id(142, 141, 140)
         # p.Person.reset_json_by_database()
         """Person(115, 116, 117)"""
 

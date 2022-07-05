@@ -151,32 +151,5 @@
         "gender": "female",
         "birth_year": "2000-08-11",
         "address": "Aziz"
-    },
-    {
-        "Id": 140,
-        "first_name": "yasmeen",
-        "father": "ali",
-        "last_name": "saleem",
-        "gender": "female",
-        "birth_year": "2000-08-11",
-        "address": "Aziz"
-    },
-    {
-        "Id": 141,
-        "first_name": "yasmeen",
-        "father": "ali",
-        "last_name": "saleem",
-        "gender": "female",
-        "birth_year": "2000-08-11",
-        "address": "Aziz"
-    },
-    {
-        "Id": 142,
-        "first_name": "yasmeen",
-        "father": "ali",
-        "last_name": "saleem",
-        "gender": "female",
-        "birth_year": "2000-08-11",
-        "address": "Aziz"
     }
 ]

@@ -113,7 +113,7 @@ class Convicts:
             print("-" * 100)
             for row in db.cursor().execute(temp_str, temp_val).fetchall():
                 count += 1
-                print(f' {count} '.center(7, ' '),
+                print(f' {str(count).zfill(3)} '.center(7, ' '),
                       f' {row[0]} '.center(14, ' '),
                       f' {row[1]} '.center(12, ' '),
                       f' {row[2]} '.center(21, ' '),
