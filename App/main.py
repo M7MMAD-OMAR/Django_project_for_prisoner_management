@@ -87,7 +87,7 @@ if __name__ == '__main__':
         # v.Visits.__str__()
 
         """Reset all Visits data in json file, then get data from database"""
-        v.Visits.reset_json_by_database()
+        # v.Visits.reset_json_by_database()
 
 
 
