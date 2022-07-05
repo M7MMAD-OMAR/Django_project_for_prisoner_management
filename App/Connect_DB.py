@@ -1,3 +1,4 @@
+import json
 import sqlite3 as sq
 from datetime import datetime as dt, date as d, time as t
 
@@ -14,6 +15,11 @@ def connect_DB():
     except sq.Error:
         raise "Error: while working with SQLite"
 
+
+def write_json(date, json_file):
+    """Add or write or delete data in json file"""
+    with open(json_file, "w") as jf:
+        json.dump(date, jf, indent=4)
 
 def check(s: str, message: str):
     """check String values and raise ValueError
