@@ -1,6 +1,4 @@
-from datetime import time, date
 import Connect_DB as c_DB
-import Visits as v
 
 import Convicts as c
 import Dungeon as d, Person as p, Visits as v, Offense as o, Dungeon_Moves as dm
@@ -9,8 +7,6 @@ import Dungeon as d, Person as p, Visits as v, Offense as o, Dungeon_Moves as dm
 # import Dungeon as d, Person as p, Visits as v, Offense as o, Dungeon_Moves as dm
 if __name__ == '__main__':
     try:
-        pp = p.Person("", "", "", "", date(2000, 8, 11), 'Aziz')
-
         """ Person Start """
         """Add person in Database and json file"""
         # p.Person.add_person(' maroa  ', ' ali  ', ' saleem  ', "  female   ", date(2000, 8, 11), 'Aziz')
@@ -27,7 +23,6 @@ if __name__ == '__main__':
         """Print All person in console with Database only"""
         # p.Person.__str__()
 
-
         """Reset all Person data in json file, then get data from database"""
         # p.Person.reset_json_by_database()
 
@@ -35,6 +30,8 @@ if __name__ == '__main__':
         # p.Person.print_all_data_by_json()
 
         """ Person End """
+
+
 
 
         """ Convicts Start """
@@ -60,14 +57,12 @@ if __name__ == '__main__':
         """Return Persons between tow date first and second date"""
         # c.Convicts.select_persons_between_date(date(2004, 11, 3), date(2005, 6, 8))
 
-
         """Print all Convicts data in console by json file only"""
         # c.Convicts.print_all_data_by_json()
 
         """Reset all Convicts data in json file, then get data from database"""
         # c.Convicts.reset_json_by_database()
         """ Convicts End """
-
 
 
 
@@ -104,10 +99,8 @@ if __name__ == '__main__':
         """Reset all Visits data in json file, then get data from database"""
         # v.Visits.reset_json_by_database()
 
-
         """Print all Visits data in console by json file only"""
         # v.Visits.print_all_data_by_json()
-
 
         """ Visits End """
 
@@ -120,13 +113,11 @@ if __name__ == '__main__':
         # dm.Dungeon_Moves.add_dungeon_moves(10, 116, date(2011, 10, 10))
         # dm.Dungeon_Moves.add_dungeon_moves(10, 115, date(2006, 10, 10))
 
-
         """
         Delete Dungeon Moves in Database and json file
         You can delete more than Dungeon or delete one Dungeon
         """
         # dm.Dungeon_Moves.delete_dungeon_moves_by_id(8, 9)
-
 
         """Print All Dungeon Moves in console with Database only"""
         # dm.Dungeon_Moves.__str__()
@@ -137,11 +128,11 @@ if __name__ == '__main__':
         """Reset all Dungeon Moves data in json file, then get data from database"""
         # dm.Dungeon_Moves.reset_json_by_database()
 
-
         """Print all Dungeon Moves data in console by json file only"""
         # dm.Dungeon_Moves.print_all_data_by_json()
 
         """ Dungeon Moves End """
+
 
 
 
@@ -168,6 +159,7 @@ if __name__ == '__main__':
         # o.Offense.print_all_data_by_json()
 
         """ Offense End """
+
 
 
 
