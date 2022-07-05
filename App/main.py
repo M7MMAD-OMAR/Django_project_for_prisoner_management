@@ -11,13 +11,24 @@ import Dungeon as d, Person as p, Visitings as v, Offense as o, Dungeon_Moves as
 # import Dungeon as d, Person as p, Visitings as v, Offense as o, Dungeon_Moves as dm
 if __name__ == '__main__':
     try:
+        """Add person in Database and json file"""
         # p.Person.add_person(' yasmeen  ', ' ali  ', ' saleem  ', "  female   ", date(2000, 8, 11), 'Aziz')
         # p.Person.add_person('mona  ', ' omar', 'khaled  ', "female", date(2001, 11, 8), 'Turkey, Istanbul')
         # p.Person.add_person('   amane   ', '  muhammad  ', ' hamdo ', "     female", date(1199, 1, 1), 'istanbul')
-        p.Person.__str__()
+
+        """Print All person in console with Database only"""
+        # p.Person.__str__()
+
+        """Delete person or persons in Database and json file"""
         # p.Person.delete_persons_by_id(142, 141, 140)
+
+        """Reset all data in json file, then get data from database"""
         # p.Person.reset_json_by_database()
-        """Person(115, 116, 117)"""
+
+        """Print all data in console by json file"""
+        p.Person.print_all_data_by_json()
+
+
 
         # c.Convicts.add_convicts(date(2003, 10, 20), date(2020, 1, 1), 115, 4)
         # c.Convicts.add_convicts(date(2004, 11, 3), date(2050, 1, 1), 115, 4)

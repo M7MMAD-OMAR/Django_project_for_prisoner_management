@@ -55,36 +55,6 @@ class Person:
                 db.close()
 
     @classmethod
-    def __write_json(cls, date):
-        """Add or write or delete data in person.json file"""
-        with open(Person.__json_file, "w") as jf:
-            json.dump(date, jf, indent=4)
-
-    @classmethod
-    def reset_json_by_database(cls):
-        """
-        Connect DB and select all persons
-        loading json file and append values to new json file
-        finally clear json file and add all values with DB
-        Warning: This method will delete all old values in json files then add persons with DB
-        """
-        db = None
-        try:
-            db = c_DB.connect_DB()
-            temp_str = """SELECT * FROM Person"""
-            date = []
-            for row in db.cursor().execute(temp_str).fetchall():
-                date.append({"Id": row[0], "first_name": row[1], "father": row[2], "last_name": row[3],
-                             "gender": row[4], "birth_year": str(row[5]), "address": row[6]})
-            Person.__write_json(date)
-        except Exception as ex:
-            raise Exception(ex)
-        finally:
-            if db:
-                db.commit()
-                db.close()
-
-    @classmethod
     def delete_persons_by_id(cls, *persons_ids):
         """
         delete person from database by id
@@ -170,6 +140,64 @@ class Person:
         finally:
             if db:
                 db.close()
+
+    # some json method
+    @classmethod
+    def __write_json(cls, date):
+        """Add or write or delete data in person.json file"""
+        with open(Person.__json_file, "w") as jf:
+            json.dump(date, jf, indent=4)
+
+    @classmethod
+    def reset_json_by_database(cls):
+        """
+        Connect DB and select all persons
+        loading json file and append values to new json file
+        finally clear json file and add all values with DB
+        Warning: This method will delete all old values in json files then add persons with DB
+        """
+        db = None
+        try:
+            db = c_DB.connect_DB()
+            temp_str = """SELECT * FROM Person"""
+            date = []
+            for row in db.cursor().execute(temp_str).fetchall():
+                date.append({"Id": row[0], "first_name": row[1], "father": row[2], "last_name": row[3],
+                             "gender": row[4], "birth_year": str(row[5]), "address": row[6]})
+            Person.__write_json(date)
+        except Exception as ex:
+            raise Exception(ex)
+        finally:
+            if db:
+                db.commit()
+                db.close()
+
+
+    @classmethod
+    def print_all_data_by_json(cls):
+        with open(Person.__json_file, "r") as jf:
+            data = json.load(jf)
+        # Format result
+        count = 0
+        print("#".center(8, ' '), end=' | ')
+        print("ID".center(8, ' '), end=' | ')
+        print("First Name".center(15, ' '), end=' | ')
+        print("Father".center(16, ' '), end=' | ')
+        print("Last Name".center(20, ' '), end=' | ')
+        print("Gender".center(15, ' '), end=' | ')
+        print("Birth Year".center(20, ' '), end=' | ')
+        print("Address".center(25, ' '), end=' | \n')
+        print("-" * 150)
+        for row in data:
+            count += 1
+            print(f' {str(count).zfill(3)} '.center(7, ' '),
+                  f' {row["Id"]} '.center(14, ' '),
+                  f' {row["first_name"]} '.center(12, ' '),
+                  f' {row["father"]} '.center(23, ' '),
+                  f' {row["last_name"]} '.center(20, ' '),
+                  f' {row["gender"]} '.center(20, ' '),
+                  f' {row["birth_year"]} '.center(20, ' '),
+                  f' {row["address"]} '.center(28, ' '))
 
     """Start Getter and Setter Properties."""
 
