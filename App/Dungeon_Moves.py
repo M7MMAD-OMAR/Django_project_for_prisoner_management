@@ -10,6 +10,7 @@ class Dungeon_Moves(Abstract_JSON):
     and Get, Set All Properties
     """
     __json_file = "../JSON/Dungeon_Moves.json"
+
     def __init__(self, dungeon_id: int, person_id: int, from_date):
         self.dungeon_id = dungeon_id
         self.person_id = person_id
@@ -68,7 +69,8 @@ class Dungeon_Moves(Abstract_JSON):
                 data = json.load(jf)
             temp = data
             temp.append(
-                {"Id": convicts_id, "dungeon_id": dm.dungeon_id, "person_id": dm.person_id, "from_date": str(dm.from_date)})
+                {"Id": convicts_id, "dungeon_id": dm.dungeon_id, "person_id": dm.person_id,
+                 "from_date": str(dm.from_date)})
 
             #   write json file and added change
             c_DB.write_json(data, Dungeon_Moves.__json_file)
@@ -84,7 +86,6 @@ class Dungeon_Moves(Abstract_JSON):
         finally:
             if db:
                 db.close()
-
 
     @classmethod
     def delete_dungeon_moves_by_id(cls, *dungeon_moves_ids):
@@ -106,7 +107,8 @@ class Dungeon_Moves(Abstract_JSON):
                 #   select Dungeon Moves by id in order to check  Dungeon Moves id
                 cu.execute(temp_sql_select, {"id": dungeon_moves_id})
                 if not cu.fetchone():
-                    raise ValueError(f"Error: Convicts ID {dungeon_moves_id} is not found in your data, please try again!")
+                    raise ValueError(
+                        f"Error: Convicts ID {dungeon_moves_id} is not found in your data, please try again!")
 
                 # delete the Dungeon Moves by id
                 cu.execute(temp_sql_delete, {"id": dungeon_moves_id})
@@ -137,8 +139,6 @@ class Dungeon_Moves(Abstract_JSON):
         finally:
             if db:
                 db.close()
-
-
 
     @classmethod
     def select_person_inside_dungeons(cls, person_id):
@@ -173,7 +173,6 @@ class Dungeon_Moves(Abstract_JSON):
         finally:
             if db:
                 db.close()
-
 
     @classmethod
     def reset_json_by_database(cls):
@@ -221,9 +220,6 @@ class Dungeon_Moves(Abstract_JSON):
                       f' {row["dungeon_id"]} '.center(10, ' '),
                       f' {row["person_id"]} '.center(13, ' '),
                       f' {row["from_date"]} '.center(14, ' '))
-
-
-
 
     """Start Getter and Setter Properties."""
 

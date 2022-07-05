@@ -99,8 +99,6 @@ class Offense(Abstract_JSON):
             temp_sql_select_inner_join = """SELECT  o.Id, c.Id FROM Offense AS o 
                             INNER JOIN Convicts AS c ON o.id = c.offense_id WHERE o.Id = :o_id LIMIT 1"""
 
-
-
             for offense_id in offense_ids:
 
                 #   select Offense by id in order to check find Offense id
@@ -143,7 +141,6 @@ class Offense(Abstract_JSON):
             if db:
                 db.close()
 
-
     @classmethod
     def reset_json_by_database(cls):
         """
@@ -183,9 +180,6 @@ class Offense(Abstract_JSON):
             print(f' {str(count).zfill(3)} '.center(7, ' '),
                   f' {row["Id"]} '.center(15, ' '),
                   f' {row["name"]} '.center(28, ' '))
-
-
-
 
     """Start Getter and Setter Properties."""
 

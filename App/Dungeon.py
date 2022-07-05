@@ -101,8 +101,6 @@ class Dungeon(Abstract_JSON):
             temp_sql_select_inner_join = """SELECT  d.Id, dm.Id FROM Dungeon AS d
                             INNER JOIN Dungeon_Moves AS dm ON d.id = dm.dungeon_id WHERE d.Id = :d_id LIMIT 1"""
 
-
-
             for dungeon_id in dungeons_ids:
 
                 #   select Dungeon by id in order to check find Dungeon id
@@ -187,8 +185,6 @@ class Dungeon(Abstract_JSON):
                   f' {row["name"]} '.center(30, ' '),
                   f' {row["size"]} '.center(11, ' '))
 
-
-
     """Start Getter and Setter Properties"""
 
     @property
@@ -234,4 +230,3 @@ class Dungeon(Abstract_JSON):
             self.__size = size
 
     """End Getter and Setter Properties"""
-
