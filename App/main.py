@@ -2,8 +2,6 @@ from datetime import time, date
 import Connect_DB as c_DB
 import Visitings as v
 
-"""SELECT * FROM Visitings WHERE mountin_minuts BETWEEN '06:00' and '21:00'"""
-
 import Convicts as c
 import Dungeon as d, Person as p, Visitings as v, Offense as o, Dungeon_Moves as dm
 
@@ -24,7 +22,7 @@ if __name__ == '__main__':
         Delete person or persons in Database and json file
         Warning: if person id referencing other tables, you can't delete person 
         """
-        p.Person.delete_persons_by_id(114, 116, 152)
+        # p.Person.delete_persons_by_id(114, 116, 152)
 
         """Reset all Person data in json file, then get data from database"""
         # p.Person.reset_json_by_database()
@@ -50,6 +48,9 @@ if __name__ == '__main__':
         """Return Persons between tow date first and second date"""
         # c.Convicts.select_persons_between_date(date(2004, 11, 3), date(2005, 6, 8))
 
+        """Delete Convicts in Database and json file"""
+        # c.Convicts.delete_convicts_by_id(39)
+
         """Print all Convicts data in console by json file"""
         # c.Convicts.print_all_data_by_json()
 
@@ -62,7 +63,8 @@ if __name__ == '__main__':
 
 
 
-
+        """ Visitings """
+        """Add Visitings in Database and json file"""
         # v.Visitings.add_Visiting(date(1199, 1, 1), 115, "aliiiii", time(3, 40))
         # v.Visitings.add_Visiting(date(2001, 11, 8), 116, "amera", time(5, 50))
         # v.Visitings.add_Visiting(date(2011, 11, 8), 115, "fatema", time(6, 00))

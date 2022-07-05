@@ -186,6 +186,60 @@ class Convicts:
                 db.close()
 
     @classmethod
+    def delete_convicts_by_id(cls, *convicts_ids):
+        """
+        delete convicts from database by id
+        and delete convicts in Convicts.json file by id
+        """
+
+        db = None
+        try:
+            db = c_DB.connect_DB()
+            cu = db.cursor()
+
+            temp_sql_select = """SELECT Id from Convicts WHERE Id = :id;"""
+            temp_sql_delete = """DELETE FROM Convicts WHERE Id = :id;"""
+
+            for convict_id in convicts_ids:
+
+                #   select Convicts by id in order to check  Convicts id
+                cu.execute(temp_sql_select, {"id": convict_id})
+                if not cu.fetchone():
+                    raise ValueError(f"Error: Convicts ID {convict_id} is not found in your data, please try again!")
+
+                # delete the Convicts by id
+                cu.execute(temp_sql_delete, {"id": convict_id})
+                db.commit()
+
+                # Delete Convicts in Convicts.json file, by Convicts ID
+                new_convicts_data = []
+                with open(Convicts.__json_file, "r") as jf:
+                    data = json.load(jf)
+
+                # if id in json file keep change
+                # else append Convicts json in new_convicts_data
+                # finally update Convicts.json file by new_convicts_data
+                for row in data:
+                    if row["Id"] == convict_id:
+                        pass
+                    else:
+                        new_convicts_data.append(row)
+                c_DB.write_json(new_convicts_data, Convicts.__json_file)
+
+            print("Delete Convict's in json file and Database successfully")
+
+
+
+
+        except ValueError as ex:
+            raise ex
+        except Exception as ex:
+            raise ex
+        finally:
+            if db:
+                db.close()
+
+    @classmethod
     def reset_json_by_database(cls):
         """
         Connect DB and select all Convicts
@@ -210,7 +264,6 @@ class Convicts:
             if db:
                 db.commit()
                 db.close()
-
 
     @classmethod
     def print_all_data_by_json(cls):

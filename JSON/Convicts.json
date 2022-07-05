@@ -1,19 +1,5 @@
 [
     {
-        "Id": 38,
-        "from_date": "2003-10-20",
-        "to_date": "2020-01-01",
-        "person_id": 115,
-        "offense_id": 4
-    },
-    {
-        "Id": 39,
-        "from_date": "2004-11-03",
-        "to_date": "2050-01-01",
-        "person_id": 115,
-        "offense_id": 4
-    },
-    {
         "Id": 40,
         "from_date": "2000-05-07",
         "to_date": "2030-01-01",
@@ -101,7 +87,7 @@
         "Id": 52,
         "from_date": "2003-10-20",
         "to_date": "2020-01-01",
-        "person_id": 115,
+        "person_id": 154,
         "offense_id": 4
     }
 ]
