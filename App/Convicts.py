@@ -1,9 +1,10 @@
 import json
 
 import Connect_DB as c_DB
+from App.Abstract_JSON import Abstract_JSON
 
 
-class Convicts:
+class Convicts(Abstract_JSON):
     """
     have class Convicts method and properties From date, To date, Person ID.......
     and Get, Set All Properties
