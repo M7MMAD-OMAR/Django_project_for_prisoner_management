@@ -31,16 +31,3 @@ def check(s: str, message: str):
     else:
         return True
 
-
-# def print_data(str_sql, message, *args):
-#     print(message.center(50, '_'))
-#     db = None
-#     try:
-#         db = connect_DB()
-#         for args, row in zip(args, db.cursor().execute(str_sql).fetchall()):
-#
-#     except Exception as ex:
-#         raise ex
-#     finally:
-#         if db:
-#             db.close()

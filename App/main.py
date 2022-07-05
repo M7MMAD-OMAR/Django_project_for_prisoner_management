@@ -9,7 +9,7 @@ import Dungeon as d, Person as p, Visits as v, Offense as o, Dungeon_Moves as dm
 # import Dungeon as d, Person as p, Visits as v, Offense as o, Dungeon_Moves as dm
 if __name__ == '__main__':
     try:
-        """ Person """
+        """ Person Start """
         """Add person in Database and json file"""
         # p.Person.add_person(' maroa  ', ' ali  ', ' saleem  ', "  female   ", date(2000, 8, 11), 'Aziz')
         # p.Person.add_person('mona  ', ' omar', 'khaled  ', "female", date(2001, 11, 8), 'Turkey, Istanbul')
@@ -30,8 +30,10 @@ if __name__ == '__main__':
         """Print all Person data in console by json file"""
         # p.Person.print_all_data_by_json()
 
+        """ Person End """
 
-        """ Convicts """
+
+        """ Convicts Start """
         """Add convicts in Database and json file"""
         # c.Convicts.add_convicts(date(2003, 10, 20), date(2020, 1, 1), 115, 4)
         # c.Convicts.add_convicts(date(2004, 11, 3), date(2050, 1, 1), 115, 4)
@@ -56,14 +58,13 @@ if __name__ == '__main__':
 
         """Reset all Convicts data in json file, then get data from database"""
         # c.Convicts.reset_json_by_database()
+        """ Convicts End """
 
 
 
 
 
-
-
-        """ Visits """
+        """ Visits Start """
         """Add Visits in Database and json file"""
         # v.Visits.add_Visiting(date(1199, 1, 1), 115, "karam", time(3, 40))
         # v.Visits.add_Visiting(date(2001, 11, 8), 116, "amera", time(5, 50))
@@ -96,9 +97,11 @@ if __name__ == '__main__':
 
         """Delete Visits in Database and json file"""
         # v.Visits.delete_visitor_by_id(33)
+        """ Visits End """
 
 
-        """ Dungeon Moves """
+
+        """ Dungeon Moves Start """
         """Add Dungeon Moves in Database and json file"""
         # dm.Dungeon_Moves.add_dungeon_moves(12, 155, date(1950, 5, 8))
         # dm.Dungeon_Moves.add_dungeon_moves(10, 116, date(2002, 10, 10))
@@ -118,10 +121,15 @@ if __name__ == '__main__':
 
 
         """Print all Dungeon Moves data in console by json file only"""
-        dm.Dungeon_Moves.print_all_data_by_json()
+        # dm.Dungeon_Moves.print_all_data_by_json()
 
 
-        """ Offense """
+        """Delete Dungeon Moves in Database and json file"""
+        # dm.Dungeon_Moves.delete_dungeon_moves_by_id(8, 9)
+        """ Dungeon Moves End """
+
+
+        """ Offense Start """
         """Add Offense in Database and json file"""
         # o.Offense.add_offense("first")
         # o.Offense.add_offense("second")
@@ -129,18 +137,19 @@ if __name__ == '__main__':
 
         """Print All Offense in console with Database only"""
         # o.Offense.__str__()
+        """ Offense End """
 
 
 
-
+        """ Dungeon Start """
         # d.Dungeon.add_dungeon("zenzana 1   ", 10)
         # d.Dungeon.add_dungeon("zenzana 2   ", 1)
         # d.Dungeon.add_dungeon("zenzana 3   ", 5)
-        """Dungeon(10, 11, 12)"""
 
 
 
-        #
+        """ Dungeon End """
+
 
     except c_DB.sq.ProgrammingError as ex:
         print(ex)

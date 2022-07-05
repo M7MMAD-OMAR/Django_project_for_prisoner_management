@@ -12,18 +12,6 @@
         "from_date": "2002-10-10"
     },
     {
-        "Id": 8,
-        "dungeon_id": 10,
-        "person_id": 116,
-        "from_date": "2011-10-10"
-    },
-    {
-        "Id": 9,
-        "dungeon_id": 10,
-        "person_id": 115,
-        "from_date": "2006-10-10"
-    },
-    {
         "Id": 10,
         "dungeon_id": 12,
         "person_id": 155,

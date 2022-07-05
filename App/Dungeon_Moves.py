@@ -85,6 +85,61 @@ class Dungeon_Moves(Abstract_JSON):
             if db:
                 db.close()
 
+
+    @classmethod
+    def delete_dungeon_moves_by_id(cls, *dungeon_moves_ids):
+        """
+        delete Dungeon Moves from database by id
+        and delete Dungeon Moves in Dungeon_Moves.json file by id
+        """
+
+        db = None
+        try:
+            db = c_DB.connect_DB()
+            cu = db.cursor()
+
+            temp_sql_select = """SELECT Id from Dungeon_Moves WHERE Id = :id;"""
+            temp_sql_delete = """DELETE FROM Dungeon_Moves WHERE Id = :id;"""
+
+            for dungeon_moves_id in dungeon_moves_ids:
+
+                #   select Dungeon Moves by id in order to check  Dungeon Moves id
+                cu.execute(temp_sql_select, {"id": dungeon_moves_id})
+                if not cu.fetchone():
+                    raise ValueError(f"Error: Convicts ID {dungeon_moves_id} is not found in your data, please try again!")
+
+                # delete the Dungeon Moves by id
+                cu.execute(temp_sql_delete, {"id": dungeon_moves_id})
+                db.commit()
+
+                # Delete Dungeon Moves in Dungeon Moves.json file, by Dungeon Moves ID
+                new_dungeon_moves_data = []
+                with open(Dungeon_Moves.__json_file, "r") as jf:
+                    data = json.load(jf)
+
+                # if id in json file keep change
+                # else append Dungeon Moves json in new_dungeon_moves_data
+                # finally update Dungeon Moves.json file by new_dungeon_moves_data
+                for row in data:
+                    if row["Id"] == dungeon_moves_id:
+                        pass
+                    else:
+                        new_dungeon_moves_data.append(row)
+                c_DB.write_json(new_dungeon_moves_data, Dungeon_Moves.__json_file)
+
+            print("Delete Dungeon Move's in json file and Database successfully")
+
+
+        except ValueError as ex:
+            raise ex
+        except Exception as ex:
+            raise ex
+        finally:
+            if db:
+                db.close()
+
+
+
     @classmethod
     def select_person_inside_dungeons(cls, person_id):
         """Results the person inside dungeon by person id And print all results"""
