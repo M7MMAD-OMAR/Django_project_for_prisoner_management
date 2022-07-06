@@ -3,5 +3,5 @@ Old Project/venv/*
 Old Project/Lib/*
 djangoProject/venv/*
 djangoProject/.idea/
-!djangoProject/djangoProject/*
-!djangoProject/manage.py
+#!djangoProject/djangoProject/*
+#!djangoProject/manage.py
