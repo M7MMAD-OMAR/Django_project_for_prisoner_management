@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="Moveing files" />
+    <list default="true" id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="Delete .gitignore files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +27,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/djangoProject" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
@@ -47,24 +47,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "R:/Programme/Python/djangoProject",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "database.query.execution"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;R:/Programme/Python/djangoProject&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo",
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;,
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\muham\Desktop\Pr_hw_MUHAMMAD_OMAR_HAJ_HAMDO\Djanog project for prisoner management" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="Person" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Mobile_app_for_prisoner_management" />
@@ -157,7 +162,7 @@
       <workItem from="1657058446943" duration="3513000" />
       <workItem from="1657062950355" duration="2365000" />
       <workItem from="1657090635119" duration="1055000" />
-      <workItem from="1657113677006" duration="657000" />
+      <workItem from="1657113677006" duration="875000" />
     </task>
     <task id="LOCAL-00001" summary="Added person.json and change method add_person &#10;And convert global db, &#10;To db = None">
       <created>1656949347316</created>
@@ -383,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657114335075</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Delete .gitignore files">
+      <created>1657114418751</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1657114418751</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +413,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create jsons method add, print all data, reset data in json file" />
     <MESSAGE value="Changed delete_persons_by_id &#10;method =&gt; Warning: if person id referencing other tables, you can't delete person" />
     <MESSAGE value="finish class convicts" />
     <MESSAGE value="Create Visits.json file" />
@@ -426,7 +437,8 @@
     <MESSAGE value="Add Django project and changeing" />
     <MESSAGE value="Move this media" />
     <MESSAGE value="Moveing files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moveing files" />
+    <MESSAGE value="Delete .gitignore files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete .gitignore files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Mobile_app_for_prisoner_management$main.coverage" NAME="main Coverage Results" MODIFIED="1657055627066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App" />
