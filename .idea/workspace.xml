@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="Change formatter files">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/codeql-analysis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Abstract_JSON.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Connect_DB.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Convicts.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Dungeon.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Dungeon_Moves.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Offense.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Person.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Visits.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/DataBase.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Djanog project for prisoner management.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSON/Convicts.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSON/Dungeon.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSON/Dungeon_Moves.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSON/Offense.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSON/Person.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSON/Visits.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/Convicts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Convicts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/Dungeon/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Dungeon/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/Dungeon/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Dungeon/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/Dungeon_Moves/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Dungeon_Moves/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/Dungeon_Moves/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Dungeon_Moves/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/Offense/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Offense/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/Offense/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Offense/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/Visits/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Visits/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/Visits/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Visits/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="Moveing files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,7 +157,7 @@
       <workItem from="1657058446943" duration="3513000" />
       <workItem from="1657062950355" duration="2365000" />
       <workItem from="1657090635119" duration="1055000" />
-      <workItem from="1657113677006" duration="344000" />
+      <workItem from="1657113677006" duration="657000" />
     </task>
     <task id="LOCAL-00001" summary="Added person.json and change method add_person &#10;And convert global db, &#10;To db = None">
       <created>1656949347316</created>
@@ -388,7 +355,35 @@
       <option name="project" value="LOCAL" />
       <updated>1657059009847</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Create .gitignore">
+      <created>1657114126309</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1657114126309</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Add Django project and changeing">
+      <created>1657114196763</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1657114196763</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Move this media">
+      <created>1657114223422</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1657114223422</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Moveing files">
+      <created>1657114335075</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1657114335075</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,10 +401,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added formatter in  class Person =&gt; method name __str__ &#10;and fixed json file" />
-    <MESSAGE value="Finished class person and create methode print all data by json file, I'm very happy" />
-    <MESSAGE value="Create Convicts.json file" />
-    <MESSAGE value="Create write_json method" />
     <MESSAGE value="Create jsons method add, print all data, reset data in json file" />
     <MESSAGE value="Changed delete_persons_by_id &#10;method =&gt; Warning: if person id referencing other tables, you can't delete person" />
     <MESSAGE value="finish class convicts" />
@@ -431,7 +422,11 @@
     <MESSAGE value="Finished all classes and methods and check data" />
     <MESSAGE value="Change name docx file" />
     <MESSAGE value="Change formatter files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change formatter files" />
+    <MESSAGE value="Create .gitignore" />
+    <MESSAGE value="Add Django project and changeing" />
+    <MESSAGE value="Move this media" />
+    <MESSAGE value="Moveing files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moveing files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Mobile_app_for_prisoner_management$main.coverage" NAME="main Coverage Results" MODIFIED="1657055627066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App" />

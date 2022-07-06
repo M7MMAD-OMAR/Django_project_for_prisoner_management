@@ -1,7 +1,0 @@
-.idea/*
-venv/*
-Lib/*
-djangoProject/venv/*
-djangoProject/.idea/
-djangoProject/djangoProject/*
-djangoProject/manage.py
