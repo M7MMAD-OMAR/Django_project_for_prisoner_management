@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="Change formatter files">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/codeql-analysis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Abstract_JSON.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Connect_DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Convicts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Dungeon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Dungeon_Moves.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Offense.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Person.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Visits.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/DataBase.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Djanog project for prisoner management.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSON/Convicts.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSON/Dungeon.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSON/Dungeon_Moves.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSON/Offense.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSON/Person.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSON/Visits.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SECURITY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/Convicts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Convicts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/Dungeon/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Dungeon/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/Dungeon/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Dungeon/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/Dungeon_Moves/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Dungeon_Moves/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/Dungeon_Moves/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Dungeon_Moves/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/Offense/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Offense/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/Offense/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Offense/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/Visits/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Visits/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/Visits/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/Visits/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/db.sqlite3" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/djangoProject" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2A2OOi6KDB3Ok0ZpTTiUCRS1KtO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "R:/Programme/Python/djangoProject",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "database.query.execution"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo",
+      "sqlite"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="Person" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Mobile_app_for_prisoner_management" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/App" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/App/Person.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Mobile_app_for_prisoner_management" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/App" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/App/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Mobile_app_for_prisoner_management" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/App" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/App/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.Person" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="" />
+      <created>1654204186090</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654204186090</updated>
+      <workItem from="1656977818802" duration="670000" />
+      <workItem from="1656978512350" duration="3511000" />
+      <workItem from="1657008934596" duration="259000" />
+      <workItem from="1657009220308" duration="15166000" />
+      <workItem from="1657025638097" duration="9509000" />
+      <workItem from="1657052897330" duration="4060000" />
+      <workItem from="1657058446943" duration="3513000" />
+      <workItem from="1657062950355" duration="2365000" />
+      <workItem from="1657090635119" duration="1055000" />
+      <workItem from="1657113677006" duration="344000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added person.json and change method add_person &#10;And convert global db, &#10;To db = None">
+      <created>1656949347316</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656949347316</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added person.json and change method add_person &#10;And convert global db, &#10;To db = None">
+      <created>1656949413693</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656949413693</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added formatter in  class Person =&gt; method name __str__ &#10;and fixed json file">
+      <created>1656980287058</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656980287058</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Finished class person and create methode print all data by json file, I'm very happy">
+      <created>1656981929634</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656981929634</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Create Convicts.json file">
+      <created>1657014813001</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657014813001</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Create write_json method">
+      <created>1657014881686</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657014881686</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Create jsons method add, print all data, reset data in json file">
+      <created>1657014936590</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657014936590</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Changed delete_persons_by_id &#10;method =&gt; Warning: if person id referencing other tables, you can't delete person">
+      <created>1657021593271</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657021593271</updated>
+    </task>
+    <task id="LOCAL-00009" summary="finish class convicts">
+      <created>1657023239230</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657023239230</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Create Visits.json file">
+      <created>1657025695387</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657025695387</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Change table Visitings =&gt; Visits and column mountin_miunte =&gt; mount_in_minutes">
+      <created>1657025770674</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657025770674</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Create method reset_json_by_database in Visits class">
+      <created>1657027795257</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1657027795257</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Create (Abstract_JSON)&#10;and add tow method &#10;reset_json_by_database,&#10;print_all_data_by_json">
+      <created>1657028851086</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1657028851086</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add (Abstract_JSON)">
+      <created>1657028867695</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1657028867695</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add (Abstract_JSON)">
+      <created>1657029289761</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1657029289761</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Change Visits python and json &#10;file and create method print_all_data_by_json method">
+      <created>1657029981552</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1657029981552</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Created Dungeon_Moves.json file">
+      <created>1657031717174</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1657031717174</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Created tow method in Dungeon_Moves class &#10;first =&gt; reset_json_by_database,&#10;second =&gt; print_all_data_by_json">
+      <created>1657031760684</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1657031760684</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Change">
+      <created>1657031772055</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1657031772055</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Finished in Dungeon_Moves class&#10;and json file and create all method">
+      <created>1657033637303</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1657033637303</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Create Offense.json file">
+      <created>1657034032681</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1657034032681</updated>
+    </task>
+    <task id="LOCAL-00022" summary="finish Offense class and create all methods and fix other methode">
+      <created>1657036113720</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1657036113720</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Create Dungeon.json file">
+      <created>1657055609471</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1657055609471</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Delete test.py">
+      <created>1657055814006</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1657055814006</updated>
+    </task>
+    <task id="LOCAL-00025" summary="create method delete_dungeon_by_id,&#10;reset_json_by_database,&#10;print_all_data_by_json&#10;in Dungeon class &#10;and change other class">
+      <created>1657056309058</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1657056309058</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Finished all classes and methods and check data">
+      <created>1657056379893</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1657056379893</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Change name docx file">
+      <created>1657058490571</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1657058490571</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Change formatter files">
+      <created>1657059009847</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1657059009847</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added formatter in  class Person =&gt; method name __str__ &#10;and fixed json file" />
+    <MESSAGE value="Finished class person and create methode print all data by json file, I'm very happy" />
+    <MESSAGE value="Create Convicts.json file" />
+    <MESSAGE value="Create write_json method" />
+    <MESSAGE value="Create jsons method add, print all data, reset data in json file" />
+    <MESSAGE value="Changed delete_persons_by_id &#10;method =&gt; Warning: if person id referencing other tables, you can't delete person" />
+    <MESSAGE value="finish class convicts" />
+    <MESSAGE value="Create Visits.json file" />
+    <MESSAGE value="Change table Visitings =&gt; Visits and column mountin_miunte =&gt; mount_in_minutes" />
+    <MESSAGE value="Create method reset_json_by_database in Visits class" />
+    <MESSAGE value="Create (Abstract_JSON)&#10;and add tow method &#10;reset_json_by_database,&#10;print_all_data_by_json" />
+    <MESSAGE value="add (Abstract_JSON)" />
+    <MESSAGE value="Change Visits python and json &#10;file and create method print_all_data_by_json method" />
+    <MESSAGE value="Created Dungeon_Moves.json file" />
+    <MESSAGE value="Created tow method in Dungeon_Moves class &#10;first =&gt; reset_json_by_database,&#10;second =&gt; print_all_data_by_json" />
+    <MESSAGE value="Change" />
+    <MESSAGE value="Finished in Dungeon_Moves class&#10;and json file and create all method" />
+    <MESSAGE value="Create Offense.json file" />
+    <MESSAGE value="finish Offense class and create all methods and fix other methode" />
+    <MESSAGE value="Create Dungeon.json file" />
+    <MESSAGE value="Delete test.py" />
+    <MESSAGE value="create method delete_dungeon_by_id,&#10;reset_json_by_database,&#10;print_all_data_by_json&#10;in Dungeon class &#10;and change other class" />
+    <MESSAGE value="Finished all classes and methods and check data" />
+    <MESSAGE value="Change name docx file" />
+    <MESSAGE value="Change formatter files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change formatter files" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Mobile_app_for_prisoner_management$main.coverage" NAME="main Coverage Results" MODIFIED="1657055627066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App" />
+    <SUITE FILE_PATH="coverage/Djanog_project_for_prisoner_management$main.coverage" NAME="main Coverage Results" MODIFIED="1657058945270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App" />
+  </component>
+</project>
