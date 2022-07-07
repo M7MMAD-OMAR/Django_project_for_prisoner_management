@@ -28,7 +28,8 @@ This project's save data in json files and you can delete data and get all data 
 
 <hr>
 
-####### Write the code in console:
+###### Write the code in console:
+
 ```
 py -m pip install Django
 ```
@@ -36,7 +37,8 @@ py -m pip install Django
 Or show this link: https://docs.djangoproject.com/en/4.0/howto/windows/
 
 
-####### Then that write the code in console:
+###### Then that write the code in console:
+
 ```
 python manage.py runserver
 ```
