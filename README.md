@@ -45,6 +45,14 @@ Or show this link: https://docs.djangoproject.com/en/4.0/howto/windows/
 python manage.py runserver
 ```
 
+#### finally click the link there in console😶
+
+<br>
+
+<br>
+
+<br>
+
 
 ![3](https://user-images.githubusercontent.com/73592103/177883163-3c39ba17-90cc-4a0e-9adc-8f19537fcb8f.png)
 
