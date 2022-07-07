@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="Change project and add theme in order to admin page">
+      <change beforePath="$PROJECT_DIR$/.idea/Djanog project for prisoner management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Djanog project for prisoner management.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,6 +158,7 @@
       <workItem from="1657115201283" duration="7725000" />
       <workItem from="1657192977848" duration="11343000" />
       <workItem from="1657223589586" duration="421000" />
+      <workItem from="1657224590425" duration="1396000" />
     </task>
     <task id="LOCAL-00001" summary="Added person.json and change method add_person &#10;And convert global db, &#10;To db = None">
       <created>1656949347316</created>
