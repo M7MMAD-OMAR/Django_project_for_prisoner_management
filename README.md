@@ -25,8 +25,10 @@ This project's save data in json files and you can delete data and get all data 
 ![3](https://user-images.githubusercontent.com/73592103/177883163-3c39ba17-90cc-4a0e-9adc-8f19537fcb8f.png)
 
 <hr>
+
 ![1](https://user-images.githubusercontent.com/73592103/177883167-7524387e-b060-4947-adf0-ad13bc781516.png)
 
 <hr>
+
 ![2](https://user-images.githubusercontent.com/73592103/177883170-3b4ed166-0159-4461-b977-52afe19cc035.png)
 
