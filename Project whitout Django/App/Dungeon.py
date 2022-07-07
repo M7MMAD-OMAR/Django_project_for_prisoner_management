@@ -1,7 +1,7 @@
 import json
 
 import Connect_DB as c_DB
-from App.Abstract_JSON import Abstract_JSON
+from Abstract_JSON import Abstract_JSON
 
 
 class Dungeon(Abstract_JSON):
@@ -10,7 +10,7 @@ class Dungeon(Abstract_JSON):
     and Get, Set All Properties
     """
 
-    __json_file = "../JSON/Dungeon.js ' %}on"
+    __json_file = "../JSON/Dungeon.json"
 
     def __init__(self, name: str, size: int):
         self.name = name.strip()

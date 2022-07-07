@@ -183,7 +183,7 @@ if __name__ == '__main__':
         # d.Dungeon.reset_json_by_database()
 
         """Print all Dungeon data in console by json file only"""
-        # d.Dungeon.print_all_data_by_json()
+        d.Dungeon.print_all_data_by_json()
         """ Dungeon End """
 
 

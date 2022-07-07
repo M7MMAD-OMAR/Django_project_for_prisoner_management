@@ -1,7 +1,7 @@
 import json
 
 import Connect_DB as c_DB
-from App.Abstract_JSON import Abstract_JSON
+from Abstract_JSON import Abstract_JSON
 
 
 class Visits(Abstract_JSON):
@@ -10,7 +10,7 @@ class Visits(Abstract_JSON):
     and Get, Set All Properties
     """
 
-    __json_file = "../JSON/Visits.js ' %}on"
+    __json_file = "../JSON/Visits.json"
 
     def __init__(self, date_visited: c_DB.d, person_id: int, visitor_name: str, mountIn_minutes):
         self.date_visited = date_visited

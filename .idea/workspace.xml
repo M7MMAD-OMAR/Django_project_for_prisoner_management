@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="Change files">
-      <change beforePath="$PROJECT_DIR$/.idea/Djanog project for prisoner management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Djanog project for prisoner management.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="Finish">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Djanog project for prisoner management.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Djanog project for prisoner management.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project whitout Django/App/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project whitout Django/App/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,31 +59,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/muham/Desktop/Pr_hw_MUHAMMAD_OMAR_HAJ_HAMDO/Djanog project for prisoner management/djangoProject/djangoProject&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/muham/OneDrive/سطح المكتب/Pr_hw_MUHAMMAD_OMAR_HAJ_HAMDO",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mongo&quot;,
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo",
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\muham\Desktop\Pr_hw_MUHAMMAD_OMAR_HAJ_HAMDO\Djanog project for prisoner management" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.App">
+  <component name="RunManager" selected="Python.main">
     <configuration name="App" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Djanog project for prisoner management" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -126,12 +128,60 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Visits" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Djanog project for prisoner management" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Project whitout Django/App" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Project whitout Django/App/Visits.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Djanog project for prisoner management" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Project whitout Django/App" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Project whitout Django/App/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.App" />
+      <item itemvalue="Python.Visits" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.Person" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.Visits" />
         <item itemvalue="Python.Person" />
       </list>
     </recent_temporary>
@@ -159,6 +209,9 @@
       <workItem from="1657192977848" duration="11343000" />
       <workItem from="1657223589586" duration="421000" />
       <workItem from="1657224590425" duration="1986000" />
+      <workItem from="1657226738895" duration="48000" />
+      <workItem from="1657226836284" duration="1097000" />
+      <workItem from="1657230089343" duration="373000" />
     </task>
     <task id="LOCAL-00001" summary="Added person.json and change method add_person &#10;And convert global db, &#10;To db = None">
       <created>1656949347316</created>
@@ -433,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657226234111</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Finish">
+      <created>1657226775785</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1657226775785</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +511,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create (Abstract_JSON)&#10;and add tow method &#10;reset_json_by_database,&#10;print_all_data_by_json" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/djangoProject" />
+    </ignored-roots>
     <MESSAGE value="add (Abstract_JSON)" />
     <MESSAGE value="Change Visits python and json &#10;file and create method print_all_data_by_json method" />
     <MESSAGE value="Created Dungeon_Moves.json file" />
@@ -476,10 +538,12 @@
     <MESSAGE value="Change .gitignore" />
     <MESSAGE value="Change project and add theme in order to admin page" />
     <MESSAGE value="Change files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change files" />
+    <MESSAGE value="Finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Mobile_app_for_prisoner_management$main.coverage" NAME="main Coverage Results" MODIFIED="1657055627066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App" />
+    <SUITE FILE_PATH="coverage/Pr_hw_MUHAMMAD_OMAR_HAJ_HAMDO$main.coverage" NAME="main Coverage Results" MODIFIED="1657230411532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Project whitout Django/App" />
     <SUITE FILE_PATH="coverage/Djanog_project_for_prisoner_management$main.coverage" NAME="main Coverage Results" MODIFIED="1657058945270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App" />
   </component>
 </project>

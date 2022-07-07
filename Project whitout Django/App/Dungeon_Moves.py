@@ -1,7 +1,7 @@
 import json
 
 import Connect_DB as c_DB
-from App.Abstract_JSON import Abstract_JSON
+from Abstract_JSON import Abstract_JSON
 
 
 class Dungeon_Moves(Abstract_JSON):
@@ -9,7 +9,7 @@ class Dungeon_Moves(Abstract_JSON):
     have class Dungeon_Moves method and properties Dungeon ID, Person ID, From Date.......
     and Get, Set All Properties
     """
-    __json_file = "../JSON/Dungeon_Moves.js ' %}on"
+    __json_file = "../JSON/Dungeon_Moves.json"
 
     def __init__(self, dungeon_id: int, person_id: int, from_date):
         self.dungeon_id = dungeon_id

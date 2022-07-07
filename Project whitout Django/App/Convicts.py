@@ -1,8 +1,7 @@
 import json
 
 import Connect_DB as c_DB
-from App.Abstract_JSON import Abstract_JSON
-
+from Abstract_JSON import Abstract_JSON
 
 class Convicts(Abstract_JSON):
     """
@@ -10,7 +9,7 @@ class Convicts(Abstract_JSON):
     and Get, Set All Properties
     """
 
-    __json_file = "../JSON/Convicts.js ' %}on"
+    __json_file = "../JSON/Convicts.json"
 
     def __init__(self, from_date, to_date: str, person_id: int, offense_id: int):
         self.from_date = from_date

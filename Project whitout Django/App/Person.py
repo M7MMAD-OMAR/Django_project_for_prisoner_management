@@ -1,7 +1,7 @@
 import json
 
 import Connect_DB as c_DB
-from App.Abstract_JSON import Abstract_JSON
+from Abstract_JSON import Abstract_JSON
 
 
 class Person(Abstract_JSON):
@@ -9,7 +9,7 @@ class Person(Abstract_JSON):
     have class Person method and properties First Name, Father, Last Name.......
     and Get, Set All Properties
     """
-    __json_file = "../JSON/Person.js ' %}on"
+    __json_file = "../JSON/Person.json"
 
     def __init__(self, fn: str, father: str, ls: str, gender: str, by, address: str):
         self.first_name = fn.strip()
