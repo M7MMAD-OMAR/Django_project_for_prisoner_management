@@ -22,8 +22,8 @@ This project's save data in json files and you can delete data and get all data 
 
 <hr>
 
-![1](https://user-images.githubusercontent.com/73592103/177882987-e7536c42-6558-4105-9c12-e3cec8644430.png)
-
-![2](https://user-images.githubusercontent.com/73592103/177882991-6aff1986-f2e4-44eb-9766-97bc24393901.png)
-
-![3](https://user-images.githubusercontent.com/73592103/177882998-25dea039-95cc-43f7-b876-8b9d148c6a98.png)
+![3](https://user-images.githubusercontent.com/73592103/177883163-3c39ba17-90cc-4a0e-9adc-8f19537fcb8f.png)
+<hr>
+![1](https://user-images.githubusercontent.com/73592103/177883167-7524387e-b060-4947-adf0-ad13bc781516.png)
+<hr>
+![2](https://user-images.githubusercontent.com/73592103/177883170-3b4ed166-0159-4461-b977-52afe19cc035.png)
