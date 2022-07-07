@@ -32,3 +32,6 @@ This project's save data in json files and you can delete data and get all data 
 
 ![2](https://user-images.githubusercontent.com/73592103/177883170-3b4ed166-0159-4461-b977-52afe19cc035.png)
 
+<hr>
+
+![Django](https://user-images.githubusercontent.com/73592103/177883876-242e8b58-3f1d-4ddf-ac34-aea1dbe6d3d8.png)
