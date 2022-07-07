@@ -9,7 +9,7 @@ class Dungeon_Moves(Abstract_JSON):
     have class Dungeon_Moves method and properties Dungeon ID, Person ID, From Date.......
     and Get, Set All Properties
     """
-    __json_file = "../JSON/Dungeon_Moves.json"
+    __json_file = "../JSON/Dungeon_Moves.js ' %}on"
 
     def __init__(self, dungeon_id: int, person_id: int, from_date):
         self.dungeon_id = dungeon_id
@@ -45,7 +45,7 @@ class Dungeon_Moves(Abstract_JSON):
 
     @classmethod
     def add_dungeon_moves(cls, dungeon_id: int, person_id: int, from_date):
-        """Add Dungeon Moves to DB and Dungeon_Moves.json file and check all values"""
+        """Add Dungeon Moves to DB and Dungeon_Moves.js ' %}on file and check all values"""
         db = None
         try:
             dm = Dungeon_Moves(dungeon_id, person_id, from_date)
@@ -64,7 +64,7 @@ class Dungeon_Moves(Abstract_JSON):
             # Convert Dungeon Moves id to Integer
             convicts_id = int(dungeon_moves_id[0])
 
-            # Open Dungeon_Moves.json file and add Dungeon Moves
+            # Open Dungeon_Moves.js ' %}on file and add Dungeon Moves
             with open(Dungeon_Moves.__json_file) as jf:
                 data = json.load(jf)
             temp = data
@@ -91,7 +91,7 @@ class Dungeon_Moves(Abstract_JSON):
     def delete_dungeon_moves_by_id(cls, *dungeon_moves_ids):
         """
         delete Dungeon Moves from database by id
-        and delete Dungeon Moves in Dungeon_Moves.json file by id
+        and delete Dungeon Moves in Dungeon_Moves.js ' %}on file by id
         """
 
         db = None
@@ -114,14 +114,14 @@ class Dungeon_Moves(Abstract_JSON):
                 cu.execute(temp_sql_delete, {"id": dungeon_moves_id})
                 db.commit()
 
-                # Delete Dungeon Moves in Dungeon Moves.json file, by Dungeon Moves ID
+                # Delete Dungeon Moves in Dungeon Moves.js ' %}on file, by Dungeon Moves ID
                 new_dungeon_moves_data = []
                 with open(Dungeon_Moves.__json_file, "r") as jf:
                     data = json.load(jf)
 
                 # if id in json file keep change
                 # else append Dungeon Moves json in new_dungeon_moves_data
-                # finally update Dungeon Moves.json file by new_dungeon_moves_data
+                # finally update Dungeon Moves.js ' %}on file by new_dungeon_moves_data
                 for row in data:
                     if row["Id"] == dungeon_moves_id:
                         pass

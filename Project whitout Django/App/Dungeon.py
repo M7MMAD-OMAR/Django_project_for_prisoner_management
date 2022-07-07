@@ -10,7 +10,7 @@ class Dungeon(Abstract_JSON):
     and Get, Set All Properties
     """
 
-    __json_file = "../JSON/Dungeon.json"
+    __json_file = "../JSON/Dungeon.js ' %}on"
 
     def __init__(self, name: str, size: int):
         self.name = name.strip()
@@ -55,7 +55,7 @@ class Dungeon(Abstract_JSON):
             cu.execute(temp_sql_insert, temp_val)
             db.commit()
 
-            # Add Dungeon in Dungeon.json file by id Dungeon inserted.
+            # Add Dungeon in Dungeon.js ' %}on file by id Dungeon inserted.
             cu.execute(temp_sql_select)
 
             dungeon_id = cu.fetchone()
@@ -63,7 +63,7 @@ class Dungeon(Abstract_JSON):
             # Convert Dungeon id to Integer
             dungeon_id = int(dungeon_id[0])
 
-            # Open Dungeon.json file and add Dungeon
+            # Open Dungeon.js ' %}on file and add Dungeon
             with open(Dungeon.__json_file) as jf:
                 data = json.load(jf)
             temp = data
@@ -84,7 +84,7 @@ class Dungeon(Abstract_JSON):
     def delete_dungeon_by_id(cls, *dungeons_ids):
         """
         delete Dungeon from database by id
-        and delete Dungeon in Dungeon.json file by id
+        and delete Dungeon in Dungeon.js ' %}on file by id
         Warning: if Dungeon id referencing other tables, you can't delete Dungeon
         """
         db = None
@@ -118,14 +118,14 @@ class Dungeon(Abstract_JSON):
                 cu.execute(temp_sql_delete, {"id": dungeon_id})
                 db.commit()
 
-                # Delete Dungeon in Dungeon.json file, by Dungeon ID
+                # Delete Dungeon in Dungeon.js ' %}on file, by Dungeon ID
                 new_dungeon_data = []
                 with open(Dungeon.__json_file, "r") as jf:
                     data = json.load(jf)
 
                 # if id in json file keep change
                 # else append Dungeon json in new_dungeon_data
-                # finally update Dungeon.json file by new_dungeon_data
+                # finally update Dungeon.js ' %}on file by new_dungeon_data
                 for row in data:
                     if row["Id"] == dungeon_id:
                         pass

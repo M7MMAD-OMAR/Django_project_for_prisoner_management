@@ -10,7 +10,7 @@ class Convicts(Abstract_JSON):
     and Get, Set All Properties
     """
 
-    __json_file = "../JSON/Convicts.json"
+    __json_file = "../JSON/Convicts.js ' %}on"
 
     def __init__(self, from_date, to_date: str, person_id: int, offense_id: int):
         self.from_date = from_date
@@ -58,7 +58,7 @@ class Convicts(Abstract_JSON):
 
     @classmethod
     def add_convicts(cls, from_date, to_date, person_id, offense_id):
-        """Add convicts to DB and Convicts.json file and check all values"""
+        """Add convicts to DB and Convicts.js ' %}on file and check all values"""
         db = None
         try:
             db = c_DB.connect_DB()
@@ -77,7 +77,7 @@ class Convicts(Abstract_JSON):
             # Convert convicts id to Integer
             convicts_id = int(convicts_id[0])
 
-            # Open Convicts.json file and add convicts
+            # Open Convicts.js ' %}on file and add convicts
             with open(Convicts.__json_file) as jf:
                 data = json.load(jf)
             temp = data
@@ -190,7 +190,7 @@ class Convicts(Abstract_JSON):
     def delete_convicts_by_id(cls, *convicts_ids):
         """
         delete convicts from database by id
-        and delete convicts in Convicts.json file by id
+        and delete convicts in Convicts.js ' %}on file by id
         """
 
         db = None
@@ -212,14 +212,14 @@ class Convicts(Abstract_JSON):
                 cu.execute(temp_sql_delete, {"id": convict_id})
                 db.commit()
 
-                # Delete Convicts in Convicts.json file, by Convicts ID
+                # Delete Convicts in Convicts.js ' %}on file, by Convicts ID
                 new_convicts_data = []
                 with open(Convicts.__json_file, "r") as jf:
                     data = json.load(jf)
 
                 # if id in json file keep change
                 # else append Convicts json in new_convicts_data
-                # finally update Convicts.json file by new_convicts_data
+                # finally update Convicts.js ' %}on file by new_convicts_data
                 for row in data:
                     if row["Id"] == convict_id:
                         pass

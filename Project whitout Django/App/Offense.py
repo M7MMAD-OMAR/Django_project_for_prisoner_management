@@ -10,7 +10,7 @@ class Offense(Abstract_JSON):
     and Get, Set All Properties
     """
 
-    __json_file = "../JSON/Offense.json"
+    __json_file = "../JSON/Offense.js ' %}on"
 
     def __init__(self, name: str):
         self.name = name
@@ -55,7 +55,7 @@ class Offense(Abstract_JSON):
             cu.execute(temp_str, {"n": o.name})
             db.commit()
 
-            # Add Offense in Offense.json file by id Offense inserted.
+            # Add Offense in Offense.js ' %}on file by id Offense inserted.
             cu.execute(temp_sql_select)
 
             offense_id = cu.fetchone()
@@ -63,7 +63,7 @@ class Offense(Abstract_JSON):
             # Convert Offense id to Integer
             offense_id = int(offense_id[0])
 
-            # Open Offense.json file and add Offense
+            # Open Offense.js ' %}on file and add Offense
             with open(Offense.__json_file) as jf:
                 data = json.load(jf)
             temp = data
@@ -82,7 +82,7 @@ class Offense(Abstract_JSON):
     def delete_offense_by_id(cls, *offense_ids):
         """
         delete Offense from database by id
-        and delete Offense in Offense.json file by id
+        and delete Offense in Offense.js ' %}on file by id
         Warning: if Offense id referencing other tables, you can't delete Offense
         """
         db = None
@@ -116,14 +116,14 @@ class Offense(Abstract_JSON):
                 cu.execute(temp_sql_delete, {"id": offense_id})
                 db.commit()
 
-                # Delete Offense in Offense.json file, by Offense ID
+                # Delete Offense in Offense.js ' %}on file, by Offense ID
                 new_offense_data = []
                 with open(Offense.__json_file, "r") as jf:
                     data = json.load(jf)
 
                 # if id in json file keep change
                 # else append Offense json in new_offense_data
-                # finally update Offense.json file by new_offense_data
+                # finally update Offense.js ' %}on file by new_offense_data
                 for row in data:
                     if row["Id"] == offense_id:
                         pass

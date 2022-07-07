@@ -9,7 +9,7 @@ class Person(Abstract_JSON):
     have class Person method and properties First Name, Father, Last Name.......
     and Get, Set All Properties
     """
-    __json_file = "../JSON/Person.json"
+    __json_file = "../JSON/Person.js ' %}on"
 
     def __init__(self, fn: str, father: str, ls: str, gender: str, by, address: str):
         self.first_name = fn.strip()
@@ -59,7 +59,7 @@ class Person(Abstract_JSON):
     def delete_persons_by_id(cls, *persons_ids):
         """
         delete person from database by id
-        and delete person in Person.json file by id
+        and delete person in Person.js ' %}on file by id
         Warning: if person id referencing other tables, you can't delete person
         """
         db = None
@@ -108,14 +108,14 @@ class Person(Abstract_JSON):
                 cu.execute(temp_sql_delete, {"id": person_id})
                 db.commit()
 
-                # Delete person in Person.json file, by person ID
+                # Delete person in Person.js ' %}on file, by person ID
                 new_person_data = []
                 with open(Person.__json_file, "r") as jf:
                     data = json.load(jf)
 
                 # if id in json file keep change
                 # else append person json in new_person_data
-                # finally update Person.json file by new_person_data
+                # finally update Person.js ' %}on file by new_person_data
                 for row in data:
                     if row["Id"] == person_id:
                         pass
@@ -135,7 +135,7 @@ class Person(Abstract_JSON):
 
     @classmethod
     def add_person(cls, fn: str, father: str, ls: str, gender: str, by, address: str):
-        """Add person to DataBase and Person.json file and check all Values"""
+        """Add person to DataBase and Person.js ' %}on file and check all Values"""
         db = None
         try:
             p = Person(fn, father, ls, gender, by, address)
@@ -150,7 +150,7 @@ class Person(Abstract_JSON):
             cu.execute(temp_sql_insert, temp_val)
             db.commit()
 
-            # Add person in Person.json file by id person inserted.
+            # Add person in Person.js ' %}on file by id person inserted.
             cu.execute(temp_sql_select)
 
             person_id = cu.fetchone()
@@ -158,7 +158,7 @@ class Person(Abstract_JSON):
             # Convert person id to Integer
             person_id = int(person_id[0])
 
-            # Open Person.json file and add person
+            # Open Person.js ' %}on file and add person
             with open(Person.__json_file) as jf:
                 data = json.load(jf)
             temp = data

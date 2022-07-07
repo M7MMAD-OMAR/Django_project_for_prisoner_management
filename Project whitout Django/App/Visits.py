@@ -10,7 +10,7 @@ class Visits(Abstract_JSON):
     and Get, Set All Properties
     """
 
-    __json_file = "../JSON/Visits.json"
+    __json_file = "../JSON/Visits.js ' %}on"
 
     def __init__(self, date_visited: c_DB.d, person_id: int, visitor_name: str, mountIn_minutes):
         self.date_visited = date_visited
@@ -70,7 +70,7 @@ class Visits(Abstract_JSON):
             # Convert Visits id to Integer
             visit_id = int(visit_id[0])
 
-            # Open Convicts.json file and add convicts
+            # Open Convicts.js ' %}on file and add convicts
             with open(Visits.__json_file) as jf:
                 data = json.load(jf)
             temp = data
@@ -94,7 +94,7 @@ class Visits(Abstract_JSON):
     def delete_visitor_by_id(cls, *visits_ids):
         """
         delete Visits from database by id
-        and delete Visits in Visits.json file by id
+        and delete Visits in Visits.js ' %}on file by id
         """
 
         db = None
@@ -116,14 +116,14 @@ class Visits(Abstract_JSON):
                 cu.execute(temp_sql_delete, {"id": visit_id})
                 db.commit()
 
-                # Delete Visits in Visits.json file, by Visits ID
+                # Delete Visits in Visits.js ' %}on file, by Visits ID
                 new_visits_data = []
                 with open(Visits.__json_file, "r") as jf:
                     data = json.load(jf)
 
                 # if id in json file keep change
                 # else append Visits json in new_visits_data
-                # finally update Visits.json file by new_visits_data
+                # finally update Visits.js ' %}on file by new_visits_data
                 for row in data:
                     if row["Id"] == visit_id:
                         pass

@@ -114,7 +114,7 @@ class GardenTool(object):
     def cmd_search(self):
         r = requests.get('https://api.github.com/users/kivy-garden/repos')
         pattern = self.options.pattern
-        data = r.json()
+        data = r.js ' %}on()
         for repo in data:
             if not repo['name'].startswith('garden.'):
                 continue
