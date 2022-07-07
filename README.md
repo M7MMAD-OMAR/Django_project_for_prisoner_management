@@ -53,6 +53,7 @@ python manage.py runserver
 
 <br>
 
+##### From Console
 
 ![3](https://user-images.githubusercontent.com/73592103/177883163-3c39ba17-90cc-4a0e-9adc-8f19537fcb8f.png)
 
@@ -62,8 +63,11 @@ python manage.py runserver
 
 <hr>
 
+##### From Console
+
 ![2](https://user-images.githubusercontent.com/73592103/177883170-3b4ed166-0159-4461-b977-52afe19cc035.png)
 
 <hr>
 
+##### From Django
 ![Django](https://user-images.githubusercontent.com/73592103/177883876-242e8b58-3f1d-4ddf-ac34-aea1dbe6d3d8.png)
