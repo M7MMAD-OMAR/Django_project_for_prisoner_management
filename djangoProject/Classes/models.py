@@ -11,7 +11,7 @@ class Person(models.Model):
     father = models.CharField(max_length=50, null=False)
     last_name = models.CharField(max_length=50, null=False)
     gender = models.CharField(max_length=10, choices=SEMESTER_CHOICES, default='1')
-    birth_year = models.DateField(null=False)
+    birth_year = models.DateField(null=False, blank=True)
     address = models.TextField(max_length=100, null=False)
 
     def __str__(self):

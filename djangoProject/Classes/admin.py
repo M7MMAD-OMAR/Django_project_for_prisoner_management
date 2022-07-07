@@ -8,8 +8,8 @@ from .models import Visits, Person, Convicts, Dungeon, Dungeon_Moves, Offense
 
 class Person_Admin(admin.ModelAdmin):
     list_display = ['person_id', 'first_name', 'father', 'last_name', 'gender', 'birth_year', 'address']
-    list_editable = ['first_name', 'father', 'last_name', 'gender', 'birth_year', 'address']
-    search_fields = ['person_id', 'first_name', 'father', 'last_name', 'gender', 'birth_year', 'address']
+    list_editable = ['first_name', 'father', 'last_name', 'gender', 'birth_year']
+    search_fields = ['person_id', 'first_name', 'father', 'last_name', 'gender', 'birth_year']
     list_filter = ['first_name', 'gender', 'address']
 
 
