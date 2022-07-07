@@ -36,6 +36,8 @@ py -m pip install Django
 
 Or show this link: https://docs.djangoproject.com/en/4.0/howto/windows/
 
+<br>
+
 
 #### Then that write the code in console:
 
