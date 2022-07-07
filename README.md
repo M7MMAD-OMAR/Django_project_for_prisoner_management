@@ -7,3 +7,15 @@ first homework in scripting (Python) It's a Django project to manage prisoners i
 
 ### JSON
 This project's save data in json files and you can delete data and get all data from json file 
+
+
+<hr>
+
+### **How to use this project whithout Django framework?**
+
+<hr>
+
+  * First, download the project from this link: https://github.com/M7MMAD-OMAR/Django_project_for_prisoner_management.git
+  * Second Go to **Project whitout Django/App/main.py**
+  * Here you can uses all method and create a copy of each code class
+  * Only this😊.
