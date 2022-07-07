@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="Change project and add theme in order to admin page">
+    <list default="true" id="d2efed27-d7df-401a-9e28-f36cc05db3dd" name="Changes" comment="Change files">
       <change beforePath="$PROJECT_DIR$/.idea/Djanog project for prisoner management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Djanog project for prisoner management.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -158,7 +158,7 @@
       <workItem from="1657115201283" duration="7725000" />
       <workItem from="1657192977848" duration="11343000" />
       <workItem from="1657223589586" duration="421000" />
-      <workItem from="1657224590425" duration="1396000" />
+      <workItem from="1657224590425" duration="1986000" />
     </task>
     <task id="LOCAL-00001" summary="Added person.json and change method add_person &#10;And convert global db, &#10;To db = None">
       <created>1656949347316</created>
@@ -426,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657205907734</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Change files">
+      <created>1657226234111</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1657226234111</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +451,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create method reset_json_by_database in Visits class" />
     <MESSAGE value="Create (Abstract_JSON)&#10;and add tow method &#10;reset_json_by_database,&#10;print_all_data_by_json" />
     <MESSAGE value="add (Abstract_JSON)" />
     <MESSAGE value="Change Visits python and json &#10;file and create method print_all_data_by_json method" />
@@ -469,7 +475,8 @@
     <MESSAGE value="Change project and add app Classes and moves all calss in this app" />
     <MESSAGE value="Change .gitignore" />
     <MESSAGE value="Change project and add theme in order to admin page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change project and add theme in order to admin page" />
+    <MESSAGE value="Change files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Mobile_app_for_prisoner_management$main.coverage" NAME="main Coverage Results" MODIFIED="1657055627066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App" />
