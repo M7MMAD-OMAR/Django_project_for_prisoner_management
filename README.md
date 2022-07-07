@@ -30,7 +30,7 @@ This project's save data in json files and you can delete data and get all data 
 
 #### Write the code in console:
 
-```
+```python
 py -m pip install Django
 ```
 
@@ -41,7 +41,7 @@ Or show this link: https://docs.djangoproject.com/en/4.0/howto/windows/
 
 #### Then that write the code in console:
 
-```
+```python
 python manage.py runserver
 ```
 
