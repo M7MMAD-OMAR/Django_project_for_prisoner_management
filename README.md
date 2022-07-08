@@ -1,3 +1,13 @@
+
+ __  __   _____   __  __      _      ____       ___  __  __    _    ____  
+|  \/  | |___  | |  \/  |    / \    |  _ \     / _ \|  \/  |  / \  |  _ \ 
+| |\/| |    / /  | |\/| |   / _ \   | | | |   | | | | |\/| | / _ \ | |_) |
+| |  | |   / /   | |  | |  / ___ \  | |_| |   | |_| | |  | |/ ___ \|  _ < 
+|_|  |_|  /_/    |_|  |_| /_/   \_\ |____/     \___/|_|  |_/_/   \_\_| \_\
+ 
+<hr>
+<br>
+
 # Django project for prisoner management
 first homework in scripting (Python) It's a Django project to manage prisoners in terms of adding, modifying, deleting, managing data through an integrated database and other features.
 
